@@ -11,7 +11,7 @@
 <body>
   
    @*<partial name="_LoginPartial" />*@
-    @if(ViewData["Title"] != "NotFound")
+    @if(ViewData["Title"] != "NotFound" && ViewData["Title"] != "SignUp" && ViewData["Title"] != "SignIn")
     {
     <partial name="_NavbarPartial" />
         
@@ -25,13 +25,18 @@
     
 
     @RenderBody()
-   <partial name="_FooterPartial" />
+    @if(ViewData["Title"] != "SignUp" && ViewData["Title"] != "SignIn" && ViewData["Title"] != "NotFound")
+    {
+    <partial name="_FooterPartial" />
+    }
 
 
         
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+    <script src="https://kit.fontawesome.com/41c8b474e2.js" crossorigin="anonymous"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

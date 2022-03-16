@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SignUpForm
+@{
     ViewData["Title"] = "SignUp";
 }
 
@@ -6,7 +7,7 @@
         <div id="signUp-form-container">
             <div id="signUp-form-background">
                 <div>
-                    <a class="testing" label-for="icon" href="/index.html">
+                    <a label-for="icon" asp-controller="Home" asp-action="Index">
                         <i class="fa-thin fa-angle-left icon"></i>
                         <p class="home">Home</p>
                     </a>
@@ -18,7 +19,7 @@
                     </div>
                 </div>
                 <div id="signUp-form-right">
-                    <form id="signUp-form">
+                    <form  asp-action="SignUp" asp-route-returnUrl="@Model.ReturnUrl" id="signUp-form">
                         <h3>Contact information</h3>
                         <input class="signUp-form-style" placeholder="Enter your first name">
                         <p class="signUp-form-error">error</p>
