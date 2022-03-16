@@ -1,0 +1,29 @@
+﻿@{
+
+}
+<div class="container d-flex">
+    <div class="logo-container">
+        <h2>OmniVus.</h2>
+        <p>IT Service & Technology</p>
+    </div>
+    <div class="justify-content-between social-container">
+        <div class="d-flex justify-content-between">
+            <div>
+                <div class="socials-link">info@domain.com</div>
+            </div>
+            <div class="socials-link">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+        <nav class="justify-content-end d-flex align-items-center navbar">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-controller="Services" asp-action="Index">Service</a>
+            <a asp-controller="Contact" asp-action="Index">Contact</a>
+            <a asp-controller="Auth" asp-action="SignUp"><button class="btn-book">Sign In</button></a>
+            @*<button class="btn-book" asp-controller="AuthController" asp-action="SignUp">Log In</button>*@
+        </nav>
+    </div>
+</div>

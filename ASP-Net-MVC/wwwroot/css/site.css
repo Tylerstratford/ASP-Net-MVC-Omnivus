@@ -1,0 +1,1178 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;700&family=Khula:wght@400;600;700;800&display=swap");
+
+.d-flex {
+    display: flex;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-none {
+    display: none;
+}
+
+.justify-content-start {
+    justify-content: start;
+}
+
+.justify-content-end {
+    justify-content: end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-start {
+    align-items: flex-start;
+}
+
+.align-items-end {
+    align-items: flex-end;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.container {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-showcase {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.border-wire {
+    border: 1px solid black;
+}
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+html, body {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 16px;
+    overflow-x: hidden;
+    font-family: "Karla", sans-serif;
+}
+
+.socials-link {
+    font-family: "Karla", sans-serif;
+    font-size: 1rem;
+    color: #6C90B9;
+    text-decoration: none;
+}
+
+    .socials-link a {
+        color: #6C90B9;
+        margin-left: 10px;
+    }
+
+        .socials-link a:hover {
+            color: #002249;
+        }
+
+.logo-container {
+    width: 350px;
+    background-color: white;
+    height: 135px;
+    text-align: center;
+    margin-right: 100px;
+}
+
+    .logo-container h2 {
+        color: "Khula", sans-serif;
+        font-size: 3rem;
+        margin: 0;
+        color: #002249;
+        font-weight: 800;
+    }
+
+    .logo-container p {
+        color: "Karla", sans-serif;
+        color: #6C90B9;
+        margin-top: -10px;
+    }
+
+.social-container {
+    width: 100%;
+    border-bottom: 1px solid #99C2F6;
+    height: 35px;
+    margin-top: 10px;
+}
+
+.navbar {
+    margin-top: 40px;
+}
+
+    .navbar a {
+        margin-right: 30px;
+        margin-left: 30px;
+        font-weight: 700;
+        transition: all ease 0.1s;
+        font-family: "Karla", sans-serif;
+        font-size: 1rem;
+        color: #6C90B9;
+        text-decoration: none;
+        color: #4F79A9;
+    }
+
+.btn-book {
+    height: 60px;
+    background-color: #006DE8;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: "Karla", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all ease 0.2s;
+    width: 200px;
+    cursor: pointer;
+}
+
+    .btn-book:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .btn-book:hover {
+        background-color: #002249;
+    }
+
+a:hover {
+    transform: scale(1.1);
+    color: #002249;
+}
+
+.background-landing {
+    position: absolute;
+    background: white;
+    background: radial-gradient(circle, white 20%, #a9c7ec 100%);
+    width: 100%;
+    top: 0;
+    z-index: -2;
+    height: 900px;
+    margin-bottom: 0;
+}
+
+.showcase-one {
+    align-items: center;
+    padding-left: 50px;
+    height: 756px;
+}
+
+.display-left {
+    width: 50%;
+    margin-bottom: 0;
+}
+
+    .display-left p {
+        font-size: 1.5rem;
+        color: #6C90B9;
+    }
+
+    .display-left h1 {
+        font-size: 5rem;
+        margin: 30px 0;
+        font-family: "Khula", sans-serif;
+        color: #002249;
+        font-weight: 400;
+        line-height: 1;
+    }
+
+    .display-left h3 {
+        font-size: 1.5rem;
+        color: #002249;
+        margin-right: 75px;
+    }
+
+    .display-left img {
+        display: flex;
+        padding-top: 10px;
+        margin-top: -10px;
+        margin-left: -20px;
+    }
+
+.display-right {
+    display: flex;
+    position: relative;
+    bottom: -37px;
+}
+
+    .display-right #showcase-one-figure {
+        height: 700px;
+    }
+
+#showcase-two {
+    height: 990px;
+    padding-left: 50px;
+    display: flex;
+    position: relative;
+}
+
+#showcase-two-left {
+    margin-right: 50px;
+}
+
+    #showcase-two-left img {
+        height: 890px;
+    }
+
+#showcase-two-right {
+    height: 700px;
+    display: grid;
+    grid-template-columns: 30px auto auto;
+    grid-template-rows: auto auto auto 120px 65px auto;
+    position: relative;
+}
+
+    #showcase-two-right h2 {
+        grid-row: 2;
+        grid-column: 2;
+        font-size: 3.75rem;
+        margin: 0;
+        font-family: "Khula", sans-serif;
+        font-weight: 600;
+    }
+
+    #showcase-two-right h3 {
+        grid-column: 2;
+        color: #006DE8;
+        font-family: "Karla", sans-serif;
+    }
+
+    #showcase-two-right h4 {
+        grid-row: 3;
+        grid-column: 2;
+        font-family: "Karla", sans-serif;
+        font-size: 1rem;
+        color: #6C90B9;
+        text-decoration: none;
+        margin-bottom: 40px;
+    }
+
+    #showcase-two-right #line {
+        position: relative;
+        right: 460px;
+        top: 17px;
+    }
+
+    #showcase-two-right #icon-one {
+        grid-row: 4;
+        grid-column: 1;
+    }
+
+    #showcase-two-right #experience {
+        grid-row: 4;
+        grid-column: 2;
+    }
+
+        #showcase-two-right #experience h2 {
+            font-size: 6.25rem;
+            color: #006DE8;
+            position: relative;
+            bottom: 30px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #showcase-two-right #experience h3 {
+            font-size: 1.875rem;
+            padding-right: 250px;
+            color: #002249;
+            font-weight: 600;
+            text-align: left;
+            margin-left: 25px;
+            position: relative;
+            bottom: 45px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+    #showcase-two-right #showcase-two-buttons {
+        grid-row: 5;
+        grid-column: 2;
+    }
+
+        #showcase-two-right #showcase-two-buttons #showcase-two-btn-one {
+            height: 60px;
+            background-color: #006DE8;
+            outline: none;
+            border: none;
+            color: white;
+            font-size: "Karla", sans-serif;
+            font-weight: 400;
+            cursor: pointer;
+            margin-right: 20px;
+            transition: all ease 0.2s;
+            width: 173px;
+            cursor: pointer;
+        }
+
+            #showcase-two-right #showcase-two-buttons #showcase-two-btn-one:hover {
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            }
+
+            #showcase-two-right #showcase-two-buttons #showcase-two-btn-one:hover {
+                background-color: #002249;
+            }
+
+        #showcase-two-right #showcase-two-buttons #showcase-two-btn-two {
+            height: 60px;
+            background-color: #006DE8;
+            outline: none;
+            border: none;
+            color: white;
+            font-size: "Karla", sans-serif;
+            font-weight: 400;
+            cursor: pointer;
+            background-color: #B7C3D6;
+            transition: all ease 0.2s;
+            width: 196px;
+            cursor: pointer;
+        }
+
+            #showcase-two-right #showcase-two-buttons #showcase-two-btn-two:hover {
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            }
+
+            #showcase-two-right #showcase-two-buttons #showcase-two-btn-two:hover {
+                background-color: #002249;
+            }
+
+    #showcase-two-right #icon-two {
+        grid-row: 6;
+        grid-column: 3;
+        margin-top: 100px;
+    }
+
+    #showcase-two-right #triangle {
+        position: absolute;
+        z-index: -5;
+        bottom: 190px;
+        left: 600px;
+    }
+
+#showcase-three {
+    height: 840px;
+    position: relative;
+    display: flex;
+}
+
+#showcase-three-background {
+    background-color: #00152D;
+    height: 840px;
+    width: 100%;
+    position: absolute;
+    z-index: -2;
+}
+
+#showcase-three-container {
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#showcase-three-left {
+    height: 600px;
+    width: 50%;
+    padding-right: 50px;
+}
+
+    #showcase-three-left h3 {
+        color: #006DE8;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #showcase-three-left h2 {
+        color: white;
+        font-family: "Khula", sans-serif;
+        font-weight: 600;
+        font-size: 3.75rem;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    #showcase-three-left h4 {
+        color: #A1BBD7;
+        font-weight: 400;
+        font-size: 1.5rem;
+        margin-top: 0;
+    }
+
+    #showcase-three-left p {
+        color: #C5D5E7;
+    }
+
+    #showcase-three-left #showcase-three-btn {
+        height: 60px;
+        background-color: #006DE8;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: "Karla", sans-serif;
+        font-weight: 400;
+        cursor: pointer;
+        margin-top: 25px;
+        width: 173px;
+    }
+
+        #showcase-three-left #showcase-three-btn:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        #showcase-three-left #showcase-three-btn:hover {
+            cursor: pointer;
+        }
+
+            #showcase-three-left #showcase-three-btn:hover:hover {
+                background-color: #002249;
+            }
+
+#showcase-three-line {
+    position: relative;
+    left: 95px;
+    bottom: 30px;
+}
+
+#showcase-four {
+    height: 897px;
+    display: flex;
+    justify-content: center;
+    margin-top: 228px;
+    text-align: center;
+}
+
+    #showcase-four h2 {
+        color: white;
+        font-family: "Khula", sans-serif;
+        font-weight: 400;
+        font-size: 3.75rem;
+        margin-top: 130px;
+        margin-bottom: 0;
+    }
+
+    #showcase-four p {
+        color: #C5D5E7;
+        width: 40%;
+        margin: 0 auto;
+    }
+
+#showcase-four-background {
+    background-color: #00152D;
+    height: 860px;
+    width: 1460px;
+    position: absolute;
+    z-index: -10;
+    margin-bottom: 0;
+}
+
+#form-container {
+    margin-top: 80px;
+    width: 1180px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+}
+
+#form-name {
+    height: 80px;
+    margin-right: 40px;
+    background-color: transparent;
+    border: 1px solid #707070;
+    padding-left: 50px;
+    color: white;
+    font-family: "Karla", sans-serif;
+    font-size: 1rem;
+}
+
+    #form-name::placeholder {
+        font-family: "Karla", sans-serif;
+        color: white;
+    }
+
+    #form-name:hover {
+        border: 1px solid white;
+    }
+
+#form-email {
+    height: 80px;
+    background-color: transparent;
+    border: 1px solid #707070;
+    padding-left: 50px;
+    color: white;
+    font-family: "Karla", sans-serif;
+    font-size: 1rem;
+}
+
+    #form-email::placeholder {
+        font-family: "Karla", sans-serif;
+        color: white;
+    }
+
+    #form-email:hover {
+        border: 1px solid white;
+    }
+
+#form-text-area {
+    grid-column: 1/3;
+    grid-row: 2;
+    height: 200px;
+    margin-top: 30px;
+    background-color: transparent;
+    resize: none;
+    padding-left: 50px;
+    padding-top: 30px;
+    color: white;
+    font-family: "Karla", sans-serif;
+}
+
+    #form-text-area::placeholder {
+        font-family: "Karla", sans-serif;
+        font-size: 1rem;
+        color: white;
+    }
+
+    #form-text-area:hover {
+        border: 1px solid white;
+    }
+
+#form-btn-container {
+    grid-column: 1/3;
+}
+
+    #form-btn-container #btn-form {
+        height: 60px;
+        background-color: #006DE8;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: "Karla", sans-serif;
+        font-weight: 400;
+        cursor: pointer;
+        margin-top: 30px;
+        transition: all ease 0.2s;
+        width: 239px;
+    }
+
+        #form-btn-container #btn-form:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        #form-btn-container #btn-form:hover {
+            cursor: pointer;
+        }
+
+            #form-btn-container #btn-form:hover:hover {
+                background-color: #002249;
+            }
+
+#footer {
+    height: 630px;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+}
+
+#footer-background {
+    width: 100%;
+    background-color: #00152D;
+    height: 628px;
+    position: absolute;
+    z-index: -10;
+}
+
+#footer-container {
+    margin-top: 110px;
+    padding-left: 50px;
+    display: grid;
+    grid-template-columns: 410px auto 360px;
+}
+
+#footer-left {
+    padding-left: 60px;
+}
+
+    #footer-left h2 {
+        color: white;
+        font-size: 2.5rem;
+        font-family: "Khula", sans-serif;
+        font-weight: 400;
+    }
+
+    #footer-left p {
+        color: #C2D1E2;
+        font-weight: 400;
+    }
+
+#footer-right {
+    align-items: left;
+    grid-column: 3;
+}
+
+    #footer-right h2 {
+        color: white;
+        font-size: 2.5rem;
+        font-family: "Khula", sans-serif;
+        font-weight: 400;
+    }
+
+    #footer-right p {
+        color: #C2D1E2;
+        font-weight: 400;
+        font-family: "Karla", sans-serif;
+        margin: 0;
+    }
+
+    #footer-right h4 {
+        color: white;
+        font-family: "Karla", sans-serif;
+        font-weight: 700;
+    }
+
+    #footer-right span {
+        color: #C2D1E2;
+    }
+
+#copyright-container {
+    text-align: center;
+    grid-column: 1/4;
+    position: relative;
+    bottom: -140px;
+    padding-left: 50px;
+}
+
+    #copyright-container p {
+        color: #C2D1E2;
+        font-weight: 400;
+        font-family: "Karla", sans-serif;
+        width: 65%;
+        margin: 0 auto;
+        border-top: 0.5px solid #707070;
+    }
+
+#circle-large {
+    width: 750px;
+    height: 750px;
+    border-radius: 50%;
+    background-color: #006DE8;
+    opacity: .2;
+    position: absolute;
+    left: -390px;
+    bottom: -410px;
+}
+
+#circle-medium {
+    width: 106px;
+    height: 106px;
+    border-radius: 50%;
+    background-color: #006DE8;
+    position: absolute;
+    right: 125px;
+    bottom: 50px;
+}
+
+#circle-small {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background-color: #00E8CF;
+    position: absolute;
+    right: 225px;
+    bottom: 150px;
+}
+
+.background-landing-pages {
+    position: absolute;
+    background: white;
+    background: radial-gradient(circle, white 20%, #a9c7ec 100%);
+    width: 100%;
+    top: 0;
+    z-index: -2;
+    height: 537px;
+    margin-bottom: 0;
+}
+
+.showcaseOne-pages {
+    text-align: center;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .showcaseOne-pages h1 {
+        font-family: "Khula", sans-serif;
+        color: #002249;
+        font-size: 5rem;
+        margin: 0;
+    }
+
+#service-title a {
+    font-family: "Karla", sans-serif;
+    font-size: 1rem;
+    color: #6C90B9;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all ease .1s;
+}
+
+    #service-title a:hover {
+        color: #002249;
+    }
+
+#service-title span {
+    font-family: "Karla", sans-serif;
+    font-size: 1rem;
+    color: #6C90B9;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+#service-showcase-two {
+    height: 874px;
+    margin-top: 260px;
+}
+
+#service-showcase-two-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    row-gap: 25px;
+}
+
+.service-grid-card {
+    width: 370px;
+    height: 300px;
+    background-color: #C1C1C1;
+    position: relative;
+    transition: all ease 0.2s;
+}
+
+    .service-grid-card .service-grid-dark-gray {
+        background-color: #223b57;
+        width: 100%;
+        height: 70px;
+        position: absolute;
+        bottom: 0;
+        align-items: center;
+        transition: all ease 0.2s;
+    }
+
+        .service-grid-card .service-grid-dark-gray .blue-box {
+            background-color: #006DE8;
+            height: 70px;
+            width: 75px;
+            position: relative;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .service-grid-card .service-grid-dark-gray .description {
+            visibility: hidden;
+        }
+
+        .service-grid-card .service-grid-dark-gray p {
+            color: white;
+            font-family: "Khula", sans-serif;
+            font-size: 1.25rem;
+            margin: 0;
+            font-weight: 400;
+            padding-left: 50px;
+        }
+
+        .service-grid-card .service-grid-dark-gray .IT {
+            padding-top: 20px;
+        }
+
+    .service-grid-card:hover {
+        transform: scale(1.01);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+        .service-grid-card:hover .service-grid-dark-gray {
+            background: linear-gradient(180deg, #60abff 0%, #0066ff 100%);
+            height: 180px;
+            align-items: flex-start;
+        }
+
+        .service-grid-card:hover .blue-box {
+            bottom: 20px;
+        }
+
+        .service-grid-card:hover p {
+            align-items: flex-start;
+            padding-top: 15px;
+        }
+
+        .service-grid-card:hover .description {
+            visibility: visible;
+            font-size: 0.875rem;
+            width: 90%;
+        }
+
+#contact-showcaseTwo {
+    height: 930px;
+    width: 100%;
+    background-color: #F7FCFF;
+    z-index: -15;
+}
+
+#contact-showcaseTwo-left {
+    margin-top: 125px;
+    width: 50%;
+}
+
+    #contact-showcaseTwo-left h3 {
+        color: #006DE8;
+    }
+
+    #contact-showcaseTwo-left img {
+        margin-left: 15px;
+    }
+
+    #contact-showcaseTwo-left h2 {
+        font-family: "Khula", sans-serif;
+        color: #002249;
+        font-size: 3.75rem;
+        font-weight: 400;
+        margin: 0;
+        width: 85%;
+    }
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+    #contact-form input {
+        margin-bottom: 20px;
+        border: none;
+        background-color: white;
+        height: 70px;
+        padding-left: 25px;
+    }
+
+        #contact-form input::placeholder {
+            font-family: "Karla", sans-serif;
+            color: #6B93AA;
+        }
+
+        #contact-form input:hover {
+            outline: none;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        #contact-form input:focus {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border: none;
+            outline: none;
+        }
+
+    #contact-form textarea {
+        resize: none;
+        border: none;
+        background-color: white;
+        height: 170px;
+        font-family: "Karla", sans-serif;
+        padding-left: 25px;
+        padding-top: 25px;
+        color: #6B93AA;
+    }
+
+        #contact-form textarea::placeholder {
+            font-family: "Karla", sans-serif;
+            color: #6B93AA;
+        }
+
+        #contact-form textarea:hover {
+            outline: none;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        #contact-form textarea:focus {
+            outline: none;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+    #contact-form #btn-contact-form {
+        height: 60px;
+        background-color: #006DE8;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: "Karla", sans-serif;
+        font-weight: 400;
+        cursor: pointer;
+        width: 214px;
+        margin-top: 25px;
+        transition: all ease 0.2s;
+        cursor: pointer;
+    }
+
+        #contact-form #btn-contact-form:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        #contact-form #btn-contact-form:hover {
+            background-color: #002249;
+        }
+
+#contact-showcaseTwo-right {
+    width: 50%;
+    margin-left: 40px;
+    margin-top: 125px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+    #contact-showcaseTwo-right #contact-showcaseTwo-right-background {
+        background-color: #445F7A;
+        position: relative;
+        height: 558px;
+        width: 529px;
+        z-index: 5;
+        display: flex;
+    }
+
+    #contact-showcaseTwo-right #contact-showcaseTwo-triangle {
+        position: absolute;
+        background-image: url(/images/triangle.png);
+        background-repeat: no-repeat;
+        right: 20px;
+        bottom: 45px;
+        height: 404px;
+        width: 370px;
+        z-index: 1;
+    }
+
+#notFound-background {
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+#notfound-container {
+    margin-top: 30px;
+}
+
+    #notfound-container #notfound-picture {
+        height: 527px;
+        width: 722px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    #notfound-container h1 {
+        font-family: "Khula", sans-serif;
+        color: #002249;
+        font-weight: 400;
+        font-size: 5rem;
+        width: 30%;
+        margin: 0 auto;
+        margin-bottom: 0;
+        line-height: 5rem;
+    }
+
+    #notfound-container p {
+        font-size: 1.5rem;
+        color: #69A1BB;
+        margin-top: 25px;
+    }
+
+#signUp-form-container {
+    width: 100%;
+    height: 950px;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#signUp-form-background {
+    height: 80%;
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+    #signUp-form-background .icon {
+        position: absolute;
+        color: white;
+        left: 25px;
+        top: 25px;
+        font-size: 3rem;
+        cursor: pointer;
+        transition: all ease .3s;
+    }
+
+        #signUp-form-background .icon:hover {
+            color: #006DE8;
+            position: absolute;
+            transform: scale(1.5);
+        }
+
+            #signUp-form-background .icon:hover:hover + .home {
+                opacity: 1;
+                left: 75px;
+                top: 20px;
+            }
+
+    #signUp-form-background .home {
+        position: absolute;
+        color: white;
+        left: 45px;
+        top: 20px;
+        opacity: 0;
+        transition: all ease .3s;
+    }
+
+#signUp-form-left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #002249;
+}
+
+    #signUp-form-left #signUp-form-header {
+        text-align: center;
+        margin: 0;
+        color: white;
+        font-family: "Khula", sans-serif;
+        font-size: 5rem;
+        font-weight: 600;
+    }
+
+    #signUp-form-left p {
+        margin: 0;
+        font-family: "Karla", sans-serif;
+        color: white;
+        font-size: 2rem;
+        font-weight: 200;
+    }
+
+#signUp-form-right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    border: 1px solid #002249;
+}
+
+#signUp-form {
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 100%;
+}
+
+    #signUp-form h3 {
+        color: #002249;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        font-family: "Karla", sans-serif;
+        font-weight: 400;
+    }
+
+    #signUp-form input {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    #signUp-form p {
+        color: #DF2935;
+        margin-left: 25px;
+        margin-top: 0;
+        margin-bottom: 0px;
+        font-size: 0.9rem;
+        font-weight: 200;
+    }
+
+    #signUp-form .forgot-password {
+        font-weight: 300;
+    }
+
+#signUp-button {
+    height: 60px;
+    background-color: #006DE8;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: "Karla", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    height: 50px;
+    width: 250px;
+    float: right;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    transition: all ease 0.2s;
+}
+
+    #signUp-button:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    #signUp-button:hover {
+        transform: scale(1.02);
+    }
+
+.signUp-form-style {
+    height: 40px;
+    width: 250px;
+    background-color: transparent;
+    border: 1px solid #6C90B9;
+    padding-left: 25px;
+    color: #002249;
+    font-family: "Karla", sans-serif;
+    font-size: 1rem;
+}
+
+    .signUp-form-style::placeholder {
+        font-family: "Karla", sans-serif;
+        color: #6B93AA;
+    }
+
+    .signUp-form-style:hover {
+        outline: none;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    .signUp-form-style:focus {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border: none;
+        outline: none;
+    }
+
+#signUp-form-left a {
+    color: #DF2935;
+}

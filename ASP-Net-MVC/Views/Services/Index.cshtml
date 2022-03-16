@@ -1,0 +1,24 @@
+﻿@model Services
+@{
+    ViewData["Title"] = "Services";
+
+    var servicesList = new Services();
+}
+
+<div class="container-showcase" id="service-showcase-two">
+    <div id="service-showcase-two-grid-container">
+    @for (int i = 0; i < servicesList.title.Count(); i++)
+    {
+            <div class="service-grid-card">
+                <div class="service-grid-dark-gray">
+                    <div class="d-flex ">
+                        <div class="blue-box"></div>
+                        <p class="IT">@servicesList.title[i]</p>
+                    </div>
+                    <p class="description">@servicesList.description[i]</p>
+                </div>
+            </div>
+    }
+        </div>
+    
+</div>
