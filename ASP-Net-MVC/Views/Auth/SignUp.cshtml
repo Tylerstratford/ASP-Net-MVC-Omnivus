@@ -16,32 +16,51 @@
                     <div>
                         <h1 id="signUp-form-header">Sign Up</h1>
                         <p>Enjoy all of our IT services</p>
+                        <div>
+                            <a label-for="have-account" asp-controller="auth" asp-action="SignIn">
+                                <h5 id="have-account">Have an account?</h5>
+                                <p id="signIn-signUp-link">Sign In</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div id="signUp-form-right">
                     <form  asp-action="SignUp" asp-route-returnUrl="@Model.ReturnUrl" id="signUp-form">
                         <h3>Contact information</h3>
-                        <input class="signUp-form-style" placeholder="Enter your first name">
-                        <p class="signUp-form-error">error</p>
-                        <input class="signUp-form-style" placeholder="Enter your last name">
-                        <p class="signUp-form-error">error</p>
-                        <input class="signUp-form-style" placeholder="Enter your email">
-                        <p class="signUp-form-error">error</p>
+
+                        <input asp-for="FirstName" class="signUp-form-style" placeholder="Enter your first name">
+                        <span asp-validation-for="FirstName" class="signUp-form-error"></span>
+
+                        <input asp-for="LastName" class="signUp-form-style" placeholder="Enter your last name">
+                        <span asp-validation-for="LastName" class="signUp-form-error"></span>
+
+                        <input asp-for="Email" class="signUp-form-style" placeholder="Enter your email">
+                        <span asp-validation-for="Email" class="signUp-form-error"></span>
+
                         <h3>Address information</h3>
-                        <input class="signUp-form-style" placeholder="Street address">
-                        <p class="signUp-form-error">error</p>
-                        <input class="signUp-form-style" placeholder="Postal code">
-                        <p class="signUp-form-error">error</p>
-                        <input class="signUp-form-style" placeholder="City">
-                        <p class="signUp-form-error">error</p>
+                        <input asp-for="AddressLine" class="signUp-form-style" placeholder="Street address">
+                        <span asp-validation-for="AddressLine" class="signUp-form-error"></span>
+
+                        <input asp-for="PostalCode" class="signUp-form-style" placeholder="Postal code">
+                        <span asp-validation-for="PostalCode" class="signUp-form-error"></span>
+
+                        <input asp-for="City" class="signUp-form-style" placeholder="City">
+                        <span asp-validation-for="City" class="signUp-form-error"></span>
+
                         <h3>Password</h3>
-                        <input class="signUp-form-style" placeholder="Enter your password">
-                        <p class="signUp-form-error">error</p>
-                        <input class="signUp-form-style" placeholder="Confirm password">
-                        <p class="signUp-form-error">error</p>
+                        <input asp-for="Password" class="signUp-form-style" placeholder="Enter your password">
+                        <span asp-validation-for="Password" class="signUp-form-error"></span>
+
+                        <input asp-for="ConfirmPassword" class="signUp-form-style" placeholder="Confirm password">
+                        <span asp-validation-for="ConfirmPassword" class="signUp-form-error"></span>
+
                         <button id="signUp-button">Sign Up</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

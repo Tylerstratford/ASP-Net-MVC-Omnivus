@@ -9,6 +9,14 @@
             <div>
                 <div class="socials-link">info@domain.com</div>
             </div>
+            
+                @if(SignInManager.IsSignedIn(User)) {
+                    <div class="socials-link">
+                    <p>Welcome @User.Identity?.Name</p>
+                    <a asp-controller="auth" asp-action="SignOut">Sign Out</a>
+                    </div>
+                }
+            
             <div class="socials-link">
                 <a href="#">Facebook</a>
                 <a href="#">Twitter</a>
@@ -21,7 +29,6 @@
             <a asp-controller="Services" asp-action="Index">Service</a>
             <a asp-controller="Contact" asp-action="Index">Contact</a>
             <a asp-controller="Auth" asp-action="SignIn"><button class="btn-book">Sign In</button></a>
-            @*<button class="btn-book" asp-controller="AuthController" asp-action="SignUp">Log In</button>*@
         </nav>
     </div>
 </div>

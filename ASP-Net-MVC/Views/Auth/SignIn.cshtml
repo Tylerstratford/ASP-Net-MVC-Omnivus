@@ -1,10 +1,11 @@
-﻿@{
+﻿@model SignInForm
+
+@{
     ViewData["Title"] = "SignIn";
 }
 
 <div class="container">
         <div id="signUp-form-container">
-
             <div id="signUp-form-background">
                 <div>
                 <a label-for="icon" asp-controller="Home" asp-action="Index">
@@ -16,22 +17,27 @@
                 <div id="signUp-form-left">
                     <div>
                     <h1 id="signUp-form-header">Sign In</h1>
-                    <p>Don't have an account?<a href="#"> Sign up </a>now.</p>
+                    <p>Don't have an account?<a asp-action="SignUp"> Sign up </a>now.</p>
                     
                     </div>
                 </div>
                 <div id="signUp-form-right">
-                    <form id="signUp-form">
+                    <form asp-action="SignIn" asp-route-returnUrl="@Model.ReturnUrl" id="signUp-form">
                         <h3>Email</h3>
-                        <input class="signUp-form-style" placeholder="Enter your email" >
-                            <p class="signUp-form-error">error</p>
+                        <input asp-for="Email" class="signUp-form-style" placeholder="Enter your email" >
+                        <span asp-validation-for="Email" class="signUp-form-error"></span>
+
                         <h3>Password</h3>
-                        <input class="signUp-form-style" placeholder="Enter your password" >
-                            <p class="signUp-form-error">error</p>
+                        <input asp-for="Password" class="signUp-form-style" placeholder="Enter your password" >
+                        <span asp-validation-for="Password" class="signUp-form-error"></span>
+                        <p class="signUp-form-error">@ViewData["Error"]</p>
                         <button id="signUp-button">Sign In</button>
-                        <!-- <p class="forgot-password">Forgot your password?</p> -->
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+  @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

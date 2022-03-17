@@ -15,7 +15,6 @@ builder.Services.AddScoped<IAddressManager, AddressManager>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
-    options.SignIn.RequireConfirmedAccount = true;
     options.Password.RequiredLength = 8;
     options.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<ApplicationDbContext>();

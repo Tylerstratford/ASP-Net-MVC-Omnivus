@@ -31,7 +31,7 @@ namespace ASP_Net_MVC.Helpers
 
                 var _address = await _context.Addresses.FirstOrDefaultAsync(x => x.AddressLine == address.AddressLine && x.PostalCode == address.PostalCode);
 
-                if(address == null)
+                if(_address == null)
                 {
                     _context.Addresses.Add(address);
                     await _context.SaveChangesAsync();

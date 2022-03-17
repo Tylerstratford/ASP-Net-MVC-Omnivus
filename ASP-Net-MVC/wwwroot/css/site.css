@@ -1081,6 +1081,32 @@ a:hover {
         font-weight: 200;
     }
 
+    #signUp-form-left #have-account {
+        color: white;
+        font-family: "Karla", sans-serif;
+        font-weight: 300;
+        font-size: 1rem;
+        position: relative;
+        background-color: #002249;
+        cursor: pointer;
+    }
+
+        #signUp-form-left #have-account:hover + #signIn-signUp-link {
+            bottom: 240px;
+            opacity: 1;
+        }
+
+    #signUp-form-left #signIn-signUp-link {
+        position: absolute;
+        bottom: 250px;
+        left: 285px;
+        font-size: 1.8rem;
+        margin-top: 25px;
+        color: #DF2935;
+        opacity: 0;
+        transition: all ease 0.2s;
+    }
+
 #signUp-form-right {
     width: 50%;
     display: flex;
@@ -1107,9 +1133,9 @@ a:hover {
         margin-bottom: 5px;
     }
 
-    #signUp-form p {
+    .signUp-form-error {
         color: #DF2935;
-        margin-left: 25px;
+        padding-left: 12px;
         margin-top: 0;
         margin-bottom: 0px;
         font-size: 0.9rem;
@@ -1176,3 +1202,8 @@ a:hover {
 #signUp-form-left a {
     color: #DF2935;
 }
+    #signUp-form-left a:hover {
+        color: #28DE55;
+        border-bottom: 1px solid #28DE55;
+    }
+

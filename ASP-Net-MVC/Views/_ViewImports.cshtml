@@ -1,3 +1,8 @@
 ﻿@using ASP_Net_MVC
 @using ASP_Net_MVC.Models
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
