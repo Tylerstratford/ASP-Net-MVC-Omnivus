@@ -9,26 +9,37 @@
             <div>
                 <div class="socials-link">info@domain.com</div>
             </div>
-            
-                @if(SignInManager.IsSignedIn(User)) {
-                    <div class="socials-link">
-                    <p>Welcome @User.Identity?.Name</p>
+
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <div class="socials-link">
+                    <span>Welcome @User.Identity?.Name</span>
+                    <a>My Profile</a>
                     <a asp-controller="auth" asp-action="SignOut">Sign Out</a>
-                    </div>
-                }
-            
-            <div class="socials-link">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">YouTube</a>
-            </div>
+                </div>
+            }
+            else
+            {
+                <div class="socials-link">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">YouTube</a>
+                </div>
+            }
         </div>
         <nav class="justify-content-end d-flex align-items-center navbar">
             <a asp-controller="Home" asp-action="Index">Home</a>
             <a asp-controller="Services" asp-action="Index">Service</a>
             <a asp-controller="Contact" asp-action="Index">Contact</a>
-            <a asp-controller="Auth" asp-action="SignIn"><button class="btn-book">Sign In</button></a>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a asp-controller="Auth" asp-action="SignOut"><button class="btn-book">Sign Out</button></a>
+            }
+            else
+            {
+                <a asp-controller="Auth" asp-action="SignIn"><button class="btn-book">Sign In</button></a>
+            }
         </nav>
     </div>
 </div>

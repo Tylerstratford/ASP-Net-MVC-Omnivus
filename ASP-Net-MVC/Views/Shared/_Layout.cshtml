@@ -9,29 +9,29 @@
     <link rel="stylesheet" href="~/ASP_Net_MVC.styles.css" asp-append-version="true" />
 </head>
 <body>
-  
-   @*<partial name="_LoginPartial" />*@
-    @if(ViewData["Title"] != "NotFound" && ViewData["Title"] != "SignUp" && ViewData["Title"] != "SignIn")
+
+    @*<partial name="_LoginPartial" />*@
+    @if (ViewData["Title"] != "NotFound" && ViewData["Title"] != "SignUp" && ViewData["Title"] != "SignIn")
     {
-    <partial name="_NavbarPartial" />
-        
+        <partial name="_NavbarPartial" />
+
     }
-    
-    @if(ViewData["Title"] == "Service" || ViewData["Title"] == "Contact")
+
+    @if (ViewData["Title"] == "Services" || ViewData["Title"] == "Contact")
     {
-    <partial name="_HeaderPartial"/>
+        <partial name="_HeaderPartial" />
     }
-        
-    
+
+
 
     @RenderBody()
-    @if(ViewData["Title"] != "SignUp" && ViewData["Title"] != "SignIn" && ViewData["Title"] != "NotFound")
+    @if (ViewData["Title"] != "SignUp" && ViewData["Title"] != "SignIn" && ViewData["Title"] != "NotFound")
     {
-    <partial name="_FooterPartial" />
+        <partial name="_FooterPartial" />
     }
 
 
-        
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@

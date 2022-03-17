@@ -90,9 +90,11 @@ html, body {
         margin-left: 10px;
     }
 
-        .socials-link a:hover {
-            color: #002249;
-        }
+
+
+.socials-link a:hover {
+    color: #002249;
+}
 
 .logo-container {
     width: 350px;
