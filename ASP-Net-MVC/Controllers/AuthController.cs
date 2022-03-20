@@ -26,9 +26,11 @@ namespace ASP_Net_MVC.Controllers
 
 
         #region SignUp
+        [Route("Signup")]
+        [HttpGet]
         public IActionResult SignUp(string returnUrl = null)
         {
-            if(_signInManager.IsSignedIn(User))
+            if (_signInManager.IsSignedIn(User))
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -37,7 +39,7 @@ namespace ASP_Net_MVC.Controllers
 
             var form = new SignUpForm();
 
-            if(returnUrl != null)
+            if (returnUrl != null)
             {
                 form.ReturnUrl = returnUrl;
             }
@@ -45,17 +47,17 @@ namespace ASP_Net_MVC.Controllers
             return View(form);
         }
 
-
+        [Route("Signup")]
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpForm model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
-                if(!_roleManager.Roles.Any())
+                if (!_roleManager.Roles.Any())
                 {
-                   await _roleManager.CreateAsync(new IdentityRole("admin"));
-                   await _roleManager.CreateAsync(new IdentityRole("user"));
+                    await _roleManager.CreateAsync(new IdentityRole("admin"));
+                    await _roleManager.CreateAsync(new IdentityRole("user"));
                 }
 
                 if (!_userManager.Users.Any())
@@ -86,15 +88,16 @@ namespace ASP_Net_MVC.Controllers
                     await _userManager.AddToRoleAsync(user, model.RoleName);
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
-                    if(model.ReturnUrl != null || model.ReturnUrl == "/")
+                    if (model.ReturnUrl != null || model.ReturnUrl == "/")
                     {
                         return RedirectToAction("Index", "Home");
-                    } else
+                    }
+                    else
                     {
                         return LocalRedirect(model.ReturnUrl);
                     }
                 }
-                foreach(var error in response.Errors)
+                foreach (var error in response.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
@@ -124,16 +127,16 @@ namespace ASP_Net_MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(SignInForm model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var response = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: false, false);
-                if(response.Succeeded)
+                if (response.Succeeded)
                     if (model.ReturnUrl == null || model.ReturnUrl == "/")
                         return RedirectToAction("Index", "Home");
                     else
                         return LocalRedirect(model.ReturnUrl);
-                
-                    
+
+
             }
 
             ModelState.AddModelError(String.Empty, "Incorrect email or password");
@@ -151,7 +154,7 @@ namespace ASP_Net_MVC.Controllers
         [Authorize]
         public async Task<IActionResult> SignOut()
         {
-            if(_signInManager.IsSignedIn(User))
+            if (_signInManager.IsSignedIn(User))
             {
                 await _signInManager.SignOutAsync();
 

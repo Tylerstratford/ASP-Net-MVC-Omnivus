@@ -1,9 +1,10 @@
+using ASP_Net_MVC.Areas.Identity;
 using ASP_Net_MVC.Data;
 using ASP_Net_MVC.Helpers;
 using ASP_Net_MVC.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using static ASP_Net_MVC.Helpers.AddressManager;
+//using static ASP_Net_MVC.Helpers.AddressManager;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,13 +12,22 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddScoped<IAddressManager, AddressManager>();
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>, UserClaims>();
+//builder.Services.AddScoped<IAddressManager, AddressManager>();
 
-builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+//new
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
     options.Password.RequiredLength = 8;
     options.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<ApplicationDbContext>();
+
+//old
+//builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
+//{
+//    options.Password.RequiredLength = 8;
+//    options.User.RequireUniqueEmail = true;
+//}).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.ConfigureApplicationCookie(x =>
 {
