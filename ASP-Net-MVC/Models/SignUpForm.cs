@@ -52,8 +52,14 @@ namespace ASP_Net_MVC.Models
         [RegularExpression(@"^([a-öA-Ö]+?)([\s][a-öA-Ö]+)*?$", ErrorMessage = "Must be a valid name")]
         public string City { get; set; } = "";
 
-        public string ReturnUrl { get; set; } = "/";
+        [Display(Name = "Country")]
+        [Required(ErrorMessage = "Please enter your country")]
+        [StringLength(256, ErrorMessage = "Country must contain at least 2 characters", MinimumLength = 2)]
+        [RegularExpression(@"^([a-öA-Ö]+?)([\s][a-öA-Ö]+)*?$", ErrorMessage = "Must be a valid name")]
+        public string Country { get; set; } = "";
 
+        public string ErrorMessage { get; set; } = "";
+        public string ReturnUrl { get; set; } = "/";
         public string RoleName { get; set; } = "user";
     }
 }

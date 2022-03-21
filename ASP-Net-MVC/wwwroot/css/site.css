@@ -90,11 +90,9 @@ html, body {
         margin-left: 10px;
     }
 
-
-
-.socials-link a:hover {
-    color: #002249;
-}
+        .socials-link a:hover {
+            color: #002249;
+        }
 
 .logo-container {
     width: 350px;
@@ -1135,9 +1133,9 @@ a:hover {
         margin-bottom: 5px;
     }
 
-    .signUp-form-error {
+    #signUp-form p {
         color: #DF2935;
-        padding-left: 12px;
+        margin-left: 25px;
         margin-top: 0;
         margin-bottom: 0px;
         font-size: 0.9rem;
@@ -1204,8 +1202,189 @@ a:hover {
 #signUp-form-left a {
     color: #DF2935;
 }
-    #signUp-form-left a:hover {
-        color: #28DE55;
-        border-bottom: 1px solid #28DE55;
+
+#profile-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 80px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#profile-return-home {
+    height: 80%;
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+#profile-display-left {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+    #profile-display-left h4 {
+        color: #006DE8;
+        font-size: 2.5rem;
+        margin: 0;
+        margin-top: 25px;
+        font-family: "Khula", sans-serif;
+        font-weight: 400;
     }
 
+    #profile-display-left h5 {
+        font-family: "Karla", sans-serif;
+        font-weight: 400;
+        background-color: rgba(0, 109, 255, 0.05);
+        color: #006DE8;
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+
+    #profile-display-left #profile-display-left-account {
+        position: relative;
+    }
+
+        #profile-display-left #profile-display-left-account #account-line {
+            position: absolute;
+            height: 1px;
+            width: 200px;
+            background-color: #5d93d1;
+            top: 75px;
+        }
+
+#profile-display-right {
+    width: 70%;
+    display: flex;
+    border-left: 1px solid #5d93d1;
+    position: relative;
+}
+
+    #profile-display-right #profile-picture {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        height: 200px;
+        width: 200px;
+        box-shadow: rgba(0, 109, 232, 0.2) 0px 4px 12px;
+    }
+
+#profile-form {
+    margin-left: 75px;
+    margin-right: 25px;
+    width: 100%;
+}
+
+    #profile-form h2 {
+        color: #006DE8;
+        font-size: 2rem;
+        margin-bottom: 0;
+        font-family: "Khula", sans-serif;
+        font-weight: 400;
+    }
+
+#profile-display-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+    #profile-display-header h2 {
+        color: #006DE8;
+        font-size: 2rem;
+        margin-bottom: 0;
+        margin-top: 25px;
+        font-family: "Khula", sans-serif;
+        font-weight: 400;
+    }
+
+    #profile-display-header h3 {
+        margin-top: 0;
+        color: #6C90B9;
+        font-weight: 400;
+        padding-left: 5px;
+        font-size: 1.7rem;
+    }
+
+.profile-display-right-grid {
+    display: grid;
+    grid-template-columns: 450px auto;
+    grid-row: auto auto auto auto auto;
+    row-gap: 0px;
+}
+
+    .profile-display-right-grid h2 {
+        height: 50px;
+    }
+
+    .profile-display-right-grid h3 {
+        color: #006DE8;
+        font-weight: 300;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .profile-display-right-grid h4 {
+        margin: 0;
+    }
+
+    .profile-display-right-grid .profile-display-grid-header {
+        grid-row: 1;
+        grid-column: 1/3;
+        border-bottom: 1px solid #5d93d1;
+        margin: 0;
+        margin-top: 25px;
+    }
+
+    .profile-display-right-grid .profile-display-right-grid-one {
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .profile-display-right-grid .profile-display-right-grid-two {
+        grid-row: 3;
+        grid-column: 1;
+    }
+
+    .profile-display-right-grid .profile-display-right-grid-three {
+        grid-row: 2;
+        grid-column: 2;
+    }
+
+    .profile-display-right-grid .profile-display-right-grid-four {
+        grid-row: 3;
+        grid-column: 2;
+    }
+
+    .profile-display-right-grid .profile-display-right-grid-five {
+        grid-row: 4;
+        grid-column: 1;
+    }
+
+    .profile-display-right-grid .profile-display-right-grid-six {
+        grid-row: 5;
+        grid-column: 1;
+    }
+
+    .profile-display-right-grid .profile-display-right-grid-seven {
+        grid-row: 4;
+        grid-column: 2;
+    }
+
+    .profile-display-right-grid .profile-display-right-grid-eight {
+        grid-row: 5;
+        grid-column: 2;
+    }
+
+.profile-style {
+    width: auto;
+    padding-left: 25px;
+    padding-top: 5px;
+    color: #6C90B9;
+    font-family: "Karla", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+}

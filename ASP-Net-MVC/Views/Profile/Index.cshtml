@@ -1,0 +1,61 @@
+﻿@model UserProfile
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container">
+        <div id="profile-container">
+            <div id="profile-return-home">
+                
+                <div id="profile-display-left">
+                    <div id="profile-display-left-account">
+                        <h4>Account</h4>
+                        <div id="account-line"></div>
+                        <h5>Settings</h5>
+                    </div>
+                </div>
+                <div id="profile-display-right">
+                    <div id="profile-form">
+                        <div id="profile-display-header">
+                            <div>
+                                <h2>@Model.FirstName  @Model.LastName</h2>
+                                <h3>Admin</h3>
+                            </div>
+                            <div>
+                                <div id="profile-picture"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-display-right-grid">
+                            <h2 class="profile-display-grid-header">Contact information</h2>
+                        
+                            <h3 class="profile-style profile-display-right-grid-one">First Name</h3>
+                            <h4 class="profile-style profile-display-right-grid-two">Tyler</h4>
+                            <h3 class="profile-style profile-display-right-grid-three">Last Name</h3>
+                            <h4 class="profile-style profile-display-right-grid-four">Stratford</h4>
+                            <h3 class="profile-style profile-display-right-grid-five">Email</h3>
+                            <h4 class="profile-style profile-display-right-grid-six">Tylerstratford@hotmail.com</h4>
+                        </div>
+
+
+                        <div class="profile-display-right-grid">
+                            <h2 class="profile-display-grid-header">Address information</h2>
+                        
+                            <h3 class="profile-style profile-display-right-grid-one">Street Address</h3>
+                            <h4 class="profile-style profile-display-right-grid-two">Viktor dahlens väg 58C</h4>
+                            <h3 class="profile-style profile-display-right-grid-three">Postal Code</h3>
+                            <h4 class="profile-style profile-display-right-grid-four">702 33</h4>
+                            <h3 class="profile-style profile-display-right-grid-five">City</h3>
+                            <h4 class="profile-style profile-display-right-grid-six">Örebro</h4>
+                            <h3 class="profile-style profile-display-right-grid-seven">Country</h3>
+                            <h4 class="profile-style profile-display-right-grid-eight">Sweden</h4>
+                        </div>
+
+                        
+
+                        <button id="signUp-button">Edit Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

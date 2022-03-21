@@ -13,7 +13,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>, UserClaims>();
-//builder.Services.AddScoped<IAddressManager, AddressManager>();
+builder.Services.AddScoped<IProfileManager, ProfileManager>();
 
 //new
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -22,12 +22,6 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<ApplicationDbContext>();
 
-//old
-//builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
-//{
-//    options.Password.RequiredLength = 8;
-//    options.User.RequireUniqueEmail = true;
-//}).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.ConfigureApplicationCookie(x =>
 {

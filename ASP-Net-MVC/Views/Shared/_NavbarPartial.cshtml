@@ -7,14 +7,14 @@
     <div class="justify-content-between social-container">
         <div class="d-flex justify-content-between">
             <div>
-                <div class="socials-link">info@domain.com</div>
+                <a href="mailto:info@AppDomain.com" class="socials-link">info@AppDomain.com</a>
             </div>
 
-           @* @if (SignInManager.IsSignedIn(User))
+            @if (SignInManager.IsSignedIn(User))
             {
                 <div class="socials-link">
                     <span>Welcome @User.Identity?.Name</span>
-                    <a>My Profile</a>
+                    <a asp-controller="Profile" asp-action="Index">My Profile</a>
                     <a asp-controller="auth" asp-action="SignOut">Sign Out</a>
                 </div>
             }
@@ -26,20 +26,16 @@
                     <a href="#">LinkedIn</a>
                     <a href="#">YouTube</a>
                 </div>
-            }*@
+            }
         </div>
         <nav class="justify-content-end d-flex align-items-center navbar">
             <a asp-controller="Home" asp-action="Index">Home</a>
             <a asp-controller="Services" asp-action="Index">Service</a>
             <a asp-controller="Contact" asp-action="Index">Contact</a>
-            @*@if (SignInManager.IsSignedIn(User))
+            @if(!SignInManager.IsSignedIn(User))
             {
-                <a asp-controller="Auth" asp-action="SignOut"><button class="btn-book">Sign Out</button></a>
+                <a asp-controller="Auth" asp-action="SignIn"><button class="btn-book">Sign In / Sign Up</button></a>
             }
-            else
-            {
-                <a asp-controller="Auth" asp-action="SignIn"><button class="btn-book">Sign In</button></a>
-            }*@
         </nav>
     </div>
 </div>

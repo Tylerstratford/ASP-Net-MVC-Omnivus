@@ -4,25 +4,25 @@ using ASP_Net_MVC.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP_Net_MVC.Controllers
 {
     public class AuthController : Controller
     {
 
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IAddressManager _addressManager;
+        private readonly IProfileManager _profileManager;
 
-        public AuthController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager, IAddressManager addressManager)
+        public AuthController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager, IProfileManager profileManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
-            _addressManager = addressManager;
+            _profileManager = profileManager;
         }
-
 
 
         #region SignUp
@@ -34,7 +34,6 @@ namespace ASP_Net_MVC.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-
 
 
             var form = new SignUpForm();
@@ -54,53 +53,69 @@ namespace ASP_Net_MVC.Controllers
             if (ModelState.IsValid)
             {
 
-                if (!_roleManager.Roles.Any())
+                if (!await _roleManager.Roles.AnyAsync())
                 {
                     await _roleManager.CreateAsync(new IdentityRole("admin"));
                     await _roleManager.CreateAsync(new IdentityRole("user"));
                 }
 
-                if (!_userManager.Users.Any())
+                if (!await _userManager.Users.AnyAsync())
                 {
                     model.RoleName = "admin";
                 }
 
-                var user = new AppUser()
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Email = model.Email,
-                    UserName = model.Email
-                };
+                var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == model.Email);
 
-                var response = await _userManager.CreateAsync(user, model.Password);
-
-                if (response.Succeeded)
+                if (user == null)
                 {
-                    var address = new AppAddress()
+                    user = new IdentityUser()
                     {
-                        AddressLine = model.AddressLine,
-                        PostalCode = model.PostalCode,
-                        City = model.City,
+                        UserName = model.Email,
+                        Email = model.Email
                     };
 
-                    await _addressManager.CreateUserAddressAsync(user, address);
-                    await _userManager.AddToRoleAsync(user, model.RoleName);
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                   
+                    var userResult = await _userManager.CreateAsync(user, model.Password);
+                    if(userResult.Succeeded)
 
-                    if (model.ReturnUrl != null || model.ReturnUrl == "/")
                     {
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
-                    {
-                        return LocalRedirect(model.ReturnUrl);
+                        await _userManager.AddToRoleAsync(user, model.RoleName);
+
+                        var profile = new UserProfile
+                        {
+                            FirstName = model.Email,
+                            LastName = model.Email,
+                            Email = model.Email,
+                            AddressLine = model.AddressLine,
+                            PostalCode = model.PostalCode,
+                            City = model.City,
+                            Country = model.Country,
+                        };
+
+                        var profileResult = await _profileManager.CreateAsync(user, profile);
+                        if (profileResult.Succeeded)
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+
+                            if(model.ReturnUrl == null || model.ReturnUrl == "/")
+                                return RedirectToAction("Index", "Home");
+                            else 
+                                return LocalRedirect(model.ReturnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "SomethingWentWrong");
+                           
+                        }
                     }
                 }
-                foreach (var error in response.Errors)
+
+                else
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    return RedirectToAction("Index", "ErrorEmail");
+
                 }
+
             }
             return View();
         }
