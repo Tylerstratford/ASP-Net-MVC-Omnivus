@@ -14,8 +14,9 @@ namespace ASP_Net_MVC.Controllers
             _profileManager = profileManager;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("profile/{id}")]
         [Route("Profile/{id}")]
+        //*********** Had to comment this out for routing to work correctly ******************
         public async Task<IActionResult> Index(string id)
         {
             var profile = await _profileManager.ReadAsync(id);

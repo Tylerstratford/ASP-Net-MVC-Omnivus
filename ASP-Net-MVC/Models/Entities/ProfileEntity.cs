@@ -27,10 +27,11 @@ namespace ASP_Net_MVC.Models.Entities
         public string City { get; set; } = string.Empty;
 
         [Column(TypeName = "nvarchar(50)")]
-
         public string Country { get; set; } = string.Empty;
 
         public string UserId { get; set; }
         public IdentityUser User { get; set; }
+
+
     }
 }

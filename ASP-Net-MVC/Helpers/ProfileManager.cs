@@ -11,14 +11,18 @@ namespace ASP_Net_MVC.Helpers
     {
         Task<ProfileResult> CreateAsync(IdentityUser user, UserProfile profile);
         Task<UserProfile> ReadAsync(string userId);
+        Task<string> DisplayNameAsync(string userId);
+        Task<string> ReadRoleAsync(string userId);  
     }
     public class ProfileManager : IProfileManager
     {
         private readonly ApplicationDbContext _context;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public ProfileManager(ApplicationDbContext context)
+        public ProfileManager(ApplicationDbContext context, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
+            _roleManager = roleManager;
         }
         public async Task<ProfileResult> CreateAsync(IdentityUser user, UserProfile profile)
         {
@@ -57,9 +61,24 @@ namespace ASP_Net_MVC.Helpers
                 profile.PostalCode = profileEntity.PostalCode;
                 profile.City = profileEntity.City;
                 profile.Country = profileEntity.Country;
+
             };
 
             return profile;
+        }
+
+
+        public async Task<string> ReadRoleAsync (string userId)
+        {
+            var userRole = await _context.UserRoles.FirstOrDefaultAsync(x => x.UserId == userId);
+            var role = await _roleManager.FindByIdAsync(userRole.RoleId);
+            return role.Name;
+        }
+
+        public async Task<string> DisplayNameAsync(string userId)
+        {
+            var result = await ReadAsync(userId);
+            return $"{result.FirstName} {result.LastName}";
         }
     }
     public class ProfileResult

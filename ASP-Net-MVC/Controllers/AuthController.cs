@@ -83,8 +83,8 @@ namespace ASP_Net_MVC.Controllers
 
                         var profile = new UserProfile
                         {
-                            FirstName = model.Email,
-                            LastName = model.Email,
+                            FirstName = model.FirstName,
+                            LastName = model.LastName,
                             Email = model.Email,
                             AddressLine = model.AddressLine,
                             PostalCode = model.PostalCode,

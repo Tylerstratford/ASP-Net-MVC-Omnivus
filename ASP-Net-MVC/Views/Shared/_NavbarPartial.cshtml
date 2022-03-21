@@ -13,8 +13,9 @@
             @if (SignInManager.IsSignedIn(User))
             {
                 <div class="socials-link">
-                    <span>Welcome @User.Identity?.Name</span>
-                    <a asp-controller="Profile" asp-action="Index">My Profile</a>
+                    @*<span>Welcome @User.Identity?.Name</span>*@
+                    <span>Signed in as @await ProfileManager.DisplayNameAsync(User.FindFirst("UserId").Value)</span>
+                    <a asp-controller="Profile" asp-action="Index" asp-route-id="@User.FindFirst("UserId").Value" >My Profile</a>
                     <a asp-controller="auth" asp-action="SignOut">Sign Out</a>
                 </div>
             }
