@@ -1388,3 +1388,30 @@ a:hover {
     font-size: 1.5rem;
     font-weight: 300;
 }
+
+
+#add-picture-button {
+    height: 60px;
+    background-color: white;
+    border: 1px solid #006DE8;
+    outline: none;
+    /*border: none;*/
+    color: #006DE8;
+    font-size: "Karla", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    height: 50px;
+    width: 250px;
+    float: left;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    transition: all ease 0.2s;
+}
+
+    #add-picture-button:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    #add-picture-button:hover {
+        transform: scale(1.02);
+    }

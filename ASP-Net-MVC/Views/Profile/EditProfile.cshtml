@@ -1,7 +1,7 @@
 ﻿@model UserProfile
 
 @{
-    ViewData["Title"] = "Profile";
+    ViewData["Title"] = "Edit";
 }
 
 <div class="container">
@@ -12,7 +12,7 @@
                     <div id="profile-display-left-account">
                         <h4>Account</h4>
                         <div id="account-line"></div>
-                        <h5>Profile</h5>
+                        <h5>Edit profile</h5>
                     </div>
                 </div>
                 <div id="profile-display-right">
@@ -26,16 +26,22 @@
                                 <div id="profile-picture"></div>
                             </div>
                         </div>
-                        
+
+                        <form asp-action="EditProfile" asp-route-returnUrl="">
                         <div class="profile-display-right-grid">
                             <h2 class="profile-display-grid-header">Contact information</h2>
                         
                             <h3 class="profile-style profile-display-right-grid-one">First Name</h3>
-                            <h4 class="profile-style profile-display-right-grid-two">@Model.FirstName</h4>
+                            <input asp-for="FirstName" class="profile-style profile-display-right-grid-two" placeholder="Edit first name">
+                            <span asp-validation-for="FirstName" class="signUp-form-error"></span>
+
                             <h3 class="profile-style profile-display-right-grid-three">Last Name</h3>
-                            <h4 class="profile-style profile-display-right-grid-four">@Model.LastName</h4>
+                            <input asp-for="LastName" class="profile-style profile-display-right-grid-four" placeholder="Edit last name">
+                            <span asp-validation-for="LastName" class="signUp-form-error"></span>
+
                             <h3 class="profile-style profile-display-right-grid-five">Email</h3>
-                            <h4 class="profile-style profile-display-right-grid-six">@Model.Email</h4>
+                            <input asp-for="Email" class="profile-style profile-display-right-grid-six" placeholder="Edit email">
+                            <span asp-validation-for="Email" class="signUp-form-error"></span>
                         </div>
 
 
@@ -43,20 +49,36 @@
                             <h2 class="profile-display-grid-header">Address information</h2>
                         
                             <h3 class="profile-style profile-display-right-grid-one">Street Address</h3>
-                            <h4 class="profile-style profile-display-right-grid-two">@Model.AddressLine</h4>
+                            <input asp-for="AddressLine" class="profile-style profile-display-right-grid-two" placeholder="Edit Street address">
+                            <span asp-validation-for="AddressLine" class="signUp-form-error"></span>
+
                             <h3 class="profile-style profile-display-right-grid-three">Postal Code</h3>
-                            <h4 class="profile-style profile-display-right-grid-four">@Model.PostalCode</h4>
+                            <input asp-for="PostalCode" class="profile-style profile-display-right-grid-four" placeholder="Edit Postal code">
+                            <span asp-validation-for="PostalCode" class="signUp-form-error"></span>
+
                             <h3 class="profile-style profile-display-right-grid-five">City</h3>
-                            <h4 class="profile-style profile-display-right-grid-six">@Model.City</h4>
+                            <input asp-for="City" class="profile-style profile-display-right-grid-six" placeholder="Edit City">
+                            <span asp-validation-for="City" class="signUp-form-error"></span>
+
                             <h3 class="profile-style profile-display-right-grid-seven">Country</h3>
-                            <h4 class="profile-style profile-display-right-grid-eight">@Model.Country</h4>
+                            <input asp-for="Country" class="profile-style profile-display-right-grid-eight" placeholder="Edit Country">
+                            <span asp-validation-for="Country" class="signUp-form-error"></span>
+
                         </div>
 
                         
+                        <button id="add-picture-button">Add picture</button>
 
-                         <a asp-controller="Profile" asp-action="EditProfile" asp-route-id="@User.FindFirst("UserId").Value"><button id="signUp-button">Edit Profile</button> </a> 
+                        <button id="signUp-button">Save Changes</button>
+
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+        @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

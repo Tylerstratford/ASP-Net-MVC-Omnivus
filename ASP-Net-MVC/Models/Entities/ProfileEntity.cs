@@ -6,6 +6,7 @@ namespace ASP_Net_MVC.Models.Entities
 {
     public class ProfileEntity
     {
+
         [Key]
         public int Id { get; set; }
 

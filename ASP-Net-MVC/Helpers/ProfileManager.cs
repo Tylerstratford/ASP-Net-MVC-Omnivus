@@ -12,7 +12,9 @@ namespace ASP_Net_MVC.Helpers
         Task<ProfileResult> CreateAsync(IdentityUser user, UserProfile profile);
         Task<UserProfile> ReadAsync(string userId);
         Task<string> DisplayNameAsync(string userId);
-        Task<string> ReadRoleAsync(string userId);  
+        Task<string> ReadRoleAsync(string userId);
+        //Task<ProfileResult> EditProfileAsync(IdentityUser user, UserProfile profile);
+
     }
     public class ProfileManager : IProfileManager
     {
@@ -80,6 +82,7 @@ namespace ASP_Net_MVC.Helpers
             var result = await ReadAsync(userId);
             return $"{result.FirstName} {result.LastName}";
         }
+
     }
     public class ProfileResult
     {
