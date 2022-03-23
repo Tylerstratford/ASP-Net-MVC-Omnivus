@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using ASP_Net_MVC.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace ASP_Net_MVC.Models
 {
@@ -13,6 +14,8 @@ namespace ASP_Net_MVC.Models
         public string City { get; set; } = string.Empty;
         public string Country { get; set; } = string.Empty;
 
-
+        public string FileName { get; set; }
+        public string FriendlyFileName { get; set; }
+        public IFormFile File { get; set; }
     }
 }

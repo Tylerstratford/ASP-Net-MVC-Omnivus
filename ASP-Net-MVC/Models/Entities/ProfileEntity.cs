@@ -33,6 +33,11 @@ namespace ASP_Net_MVC.Models.Entities
         public string UserId { get; set; }
         public IdentityUser User { get; set; }
 
+        public string? FileName { get; set; }
+
+        [NotMapped]
+        [Display(Name ="Upload File")]
+        public IFormFile File { get; set; }
 
     }
 }

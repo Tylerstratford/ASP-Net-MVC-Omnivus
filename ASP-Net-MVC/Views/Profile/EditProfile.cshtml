@@ -27,7 +27,7 @@
                             </div>
                         </div>
 
-                        <form asp-action="EditProfile" asp-route-returnUrl="">
+                        <form asp-action="EditProfile" enctype="multipart/form-data"  asp-route-returnUrl="">
                         <div class="profile-display-right-grid">
                             <h2 class="profile-display-grid-header">Contact information</h2>
                         
@@ -64,14 +64,14 @@
                             <input asp-for="Country" class="profile-style profile-display-right-grid-eight" placeholder="Edit Country">
                             <span asp-validation-for="Country" class="signUp-form-error"></span>
 
+                            <input asp-for="File" />
+
                         </div>
 
-                        
-                        <button id="add-picture-button">Add picture</button>
-
-                        <button id="signUp-button">Save Changes</button>
-
+                        <button type="submit" id="signUp-button">Save Changes</button>
+                       
                         </form>
+                 
 
                     </div>
                 </div>
