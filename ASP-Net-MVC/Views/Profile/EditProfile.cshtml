@@ -23,7 +23,7 @@
                                 <h3>@await ProfileManager.ReadRoleAsync(User.FindFirst("UserId").Value)</h3>
                             </div>
                             <div>
-                                <div id="profile-picture"></div>
+                                <img src="@("~/profileImages/"+Model.FileName)" asp-append-version="true" id="profile-picture"></img>
                             </div>
                         </div>
 
@@ -64,7 +64,12 @@
                             <input asp-for="Country" class="profile-style profile-display-right-grid-eight" placeholder="Edit Country">
                             <span asp-validation-for="Country" class="signUp-form-error"></span>
 
-                            <input asp-for="File" />
+
+                            <input asp-for="File" name="File" id="File" class="inputfile" />
+                            <label for="File">Add profile picture</label>
+                            <span asp-validation-for="File" class="signUp-form-error"></span>
+
+                            @*<input asp-for="File"  />*@
 
                         </div>
 
@@ -79,6 +84,6 @@
         </div>
     </div>
 
-        @section Scripts {
+     @*   @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+}*@

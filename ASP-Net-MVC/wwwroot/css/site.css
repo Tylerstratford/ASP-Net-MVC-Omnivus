@@ -1309,12 +1309,13 @@ a:hover {
         font-size: 1.7rem;
     }
 
-.profile-display-right-grid {
-    display: grid;
-    grid-template-columns: 450px auto;
-    grid-row: auto auto auto auto auto;
-    row-gap: 0px;
-}
+
+    .profile-display-right-grid {
+        display: grid;
+        grid-template-columns: 450px auto;
+        grid-row: auto auto auto auto auto;
+        row-gap: 0px;
+    }
 
     .profile-display-right-grid h2 {
         height: 50px;
@@ -1415,3 +1416,37 @@ a:hover {
     #add-picture-button:hover {
         transform: scale(1.02);
     }
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+    .inputfile + label {
+        font-family: "Karla", sans-serif;
+        position:absolute;
+        font-weight: 300;
+        bottom:0;
+    /*    margin-left: 25px;
+        margin-top: 25px;*/
+        text-align: center;
+        padding-top: 12px;
+        display: flex;
+        align-items: center;
+        width: 250px;
+        height: 47px;
+        /*margin-bottom: 5px;*/
+        color: white;
+        background-color: #A1BBD7;
+        display: inline-block;
+        cursor: pointer;
+        transition: all ease 0.2s;
+    }
+
+        .inputfile + label:hover {
+            background-color: #006DE8;
+        }

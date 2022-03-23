@@ -16,6 +16,6 @@ namespace ASP_Net_MVC.Models
 
         public string FileName { get; set; }
         public string FriendlyFileName { get; set; }
-        public IFormFile File { get; set; }
+        public IFormFile? File { get; set; }
     }
 }

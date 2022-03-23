@@ -16,9 +16,15 @@
                     @*<span>Welcome @User.Identity?.Name</span>*@
                     <span>Signed in as @await ProfileManager.DisplayNameAsync(User.FindFirst("UserId").Value)</span>
                     <a asp-controller="Profile" asp-action="Index" asp-route-id="@User.FindFirst("UserId").Value" >My Profile</a>
+                     @if (User.IsInRole("admin"))
+                    {
+                        <a asp-controller="Admin" asp-action="Users">Users</a>
+                    }
                     <a asp-controller="auth" asp-action="SignOut">Sign Out</a>
                 </div>
+              
             }
+
             else
             {
                 <div class="socials-link">

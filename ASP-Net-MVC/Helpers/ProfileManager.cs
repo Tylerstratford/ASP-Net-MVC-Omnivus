@@ -40,6 +40,7 @@ namespace ASP_Net_MVC.Helpers
                     PostalCode = profile.PostalCode,
                     Country = profile.Country,
                     UserId = user.Id,
+
                 };
 
                 _context.Profiles.Add(profileEntity);
@@ -63,6 +64,7 @@ namespace ASP_Net_MVC.Helpers
                 profile.PostalCode = profileEntity.PostalCode;
                 profile.City = profileEntity.City;
                 profile.Country = profileEntity.Country;
+                profile.FileName = profileEntity.FileName;
 
             };
 

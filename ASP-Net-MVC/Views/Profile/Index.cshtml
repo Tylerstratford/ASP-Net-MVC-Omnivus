@@ -23,7 +23,7 @@
                                 <h3>@await ProfileManager.ReadRoleAsync(User.FindFirst("UserId").Value)</h3>
                             </div>
                             <div>
-                                <div id="profile-picture"></div>
+                                <img src="@("~/profileImages/"+Model.FileName)" asp-append-version="true" id="profile-picture"></img>
                             </div>
                         </div>
                         
