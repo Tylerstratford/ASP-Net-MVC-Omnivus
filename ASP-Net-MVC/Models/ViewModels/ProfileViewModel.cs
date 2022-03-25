@@ -8,5 +8,7 @@ namespace ASP_Net_MVC.Models.ViewModels
         public UserProfile profile { get; set; }
 
         public List<RolesModel> Roles { get; set; }
+
+        public string NewRole { get; set; }
     }
 }

@@ -110,7 +110,8 @@ namespace ASP_Net_MVC.Helpers
             var profileView = new ProfileViewModel()
             {
                 Profile = profileList,
-                Roles = await ReadAllRolesAsync()
+                Roles = await ReadAllRolesAsync(),
+                NewRole = ""
             };
 
             return profileView;                
