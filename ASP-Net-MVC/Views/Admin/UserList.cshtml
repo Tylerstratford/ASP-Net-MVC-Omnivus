@@ -11,9 +11,17 @@
         <div id="user-container">
             <h1 class="user-header">Users</h1>
             <div id="add-roles-container">
-                <h2>Add Roles</h2>
-                <input placeholder="Enter role" />
-                <button>Add</button>
+              <h2>Add role</h2>
+              <input id="add-role-text" placeholder="Enter role" />
+              <button id="add-role">+</button>
+              <h2>Delete role</h2>
+              <select id="select-role-for-delete"">
+                  @foreach(var role in Model.Roles) 
+                  {
+                      <option>@role.RoleName</option>
+                  }
+              </select>
+              <button id="add-role">-</button>
             </div>
             <div id="grid-display-user-headlines">
                 <h2>Profile Picture</h2>

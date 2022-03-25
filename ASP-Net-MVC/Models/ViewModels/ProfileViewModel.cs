@@ -6,5 +6,7 @@ namespace ASP_Net_MVC.Models.ViewModels
     {
         public List<UserProfile> Profile { get; set; }
         public UserProfile profile { get; set; }
+
+        public List<RolesModel> Roles { get; set; }
     }
 }

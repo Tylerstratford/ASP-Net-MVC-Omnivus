@@ -1477,7 +1477,7 @@ a:hover {
         display: flex;
         height: 25px;
         padding-right:10px;
-        border:1px solid black;
+        border:1p 
     }
 
 #user-display {
@@ -1538,11 +1538,107 @@ a:hover {
 
 
 #grid-display-user-display-information #user-picture {
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*right: 25px;*/
     height: 60px;
     width: 60px;
     box-shadow: rgba(0, 109, 232, 0.2) 0px 4px 12px;
 }
-   
+
+#user-container {
+    width: 100%;
+    height: auto;
+    margin-top: 80px;
+    justify-content: center;
+    align-items: center;
+}
+
+    #user-container h1 {
+        color: #006DE8;
+        font-size: 2.5rem;
+        margin: 0;
+        font-family: "Khula", sans-serif;
+        font-weight: 400;
+    }
+
+#grid-display-user-headlines {
+    display: grid;
+    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+}
+
+    #grid-display-user-headlines h2 {
+        color: #006DE8;
+        font-family: "Karla", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+
+#grid-display-user-display-information {
+    display: grid;
+    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+    box-sizing: border-box;
+    border: solid 1px transparent;
+}
+
+    #grid-display-user-display-information h2 {
+        color: #6C90B9;
+        font-family: "Karla", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+
+    #grid-display-user-display-information:hover {
+        border: 1px solid #006DE8;
+        background-color: #f1f9fc;
+    }
+
+#add-roles-container {
+    display: grid;
+    width: 60%;
+    grid-template-columns: auto auto auto auto auto auto;
+    height: auto;
+    padding-right: 10px;
+    align-items: center;
+}
+
+    #add-roles-container h2 {
+        margin: 0;
+        padding: 0;
+        color: #006DE8;
+        font-weight: 300;
+    }
+
+    #add-roles-container #add-role-text {
+        height: 25px;
+        border: 1px solid;
+    }
+
+        #add-roles-container #add-role-text:focus {
+            border: 1px solid #006DE8;
+            outline: none;
+            color: #006DE8;
+        }
+
+    #add-roles-container #select-role-for-delete {
+        height: 25px;
+        width: 100px;
+        box-shadow: none;
+    }
+
+    #add-roles-container #add-role {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-left: 15px;
+        border: none;
+        background-color: #006DE8;
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+        padding-top: auto;
+        padding-bottom: auto;
+        transition: all ease 0.2s;
+        cursor: pointer;
+    }
+
+        #add-roles-container #add-role:hover {
+            transform: scale(1.05);
+        }

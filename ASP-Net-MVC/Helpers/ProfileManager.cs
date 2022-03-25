@@ -17,6 +17,8 @@ namespace ASP_Net_MVC.Helpers
 
         Task<ProfileViewModel> GetAllProfilesAsync();
 
+        Task<List<RolesModel>> ReadAllRolesAsync();
+
         //Task<ProfileResult> EditProfileAsync(IdentityUser user, UserProfile profile);
 
     }
@@ -107,7 +109,8 @@ namespace ASP_Net_MVC.Helpers
             }
             var profileView = new ProfileViewModel()
             {
-                Profile = profileList
+                Profile = profileList,
+                Roles = await ReadAllRolesAsync()
             };
 
             return profileView;                
@@ -119,9 +122,26 @@ namespace ASP_Net_MVC.Helpers
             var userRole = await _context.UserRoles.FirstOrDefaultAsync(x => x.UserId == userId);
             var role = await _roleManager.FindByIdAsync(userRole.RoleId);
             return role.Name;
+        }
 
-            
+        public async Task<List<RolesModel>> ReadAllRolesAsync() 
+        {
+            //var identityRole = await _context.UserRoles.Include(x => x.RoleId).FirstOrDefaultAsync();
 
+            var userRoles = await _context.Roles.ToListAsync();
+            var userList = new List<RolesModel>();
+            foreach(var role in userRoles)
+            {
+                userList.Add(new RolesModel()
+                {
+                   RoleId = role.Id,
+                   RoleName = role.Name,
+                });
+            }
+
+
+            return userList;
+      
         }
 
         public async Task<string> DisplayNameAsync(string userId)
