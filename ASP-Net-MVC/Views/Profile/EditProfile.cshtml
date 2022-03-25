@@ -20,7 +20,7 @@
                         <div id="profile-display-header">
                             <div>
                                 <h2>@Model.FirstName @Model.LastName</h2>
-                                <h3>@await ProfileManager.ReadRoleAsync(User.FindFirst("UserId").Value)</h3>
+                                <h3>@await ProfileManager.ReadRoleAsync(@Model.UserId)</h3>
                             </div>
                             <div>
                                 <img src="@("~/profileImages/"+Model.FileName)" asp-append-version="true" id="profile-picture"></img>
@@ -69,7 +69,6 @@
                             <label for="File">Add profile picture</label>
                             <span asp-validation-for="File" class="signUp-form-error"></span>
 
-                            @*<input asp-for="File"  />*@
 
                         </div>
 

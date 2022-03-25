@@ -23,25 +23,29 @@ namespace ASP_Net_MVC.Controllers
             _host = host;
         }
 
-        //public ProfileController(IProfileManager profileManager, ApplicationDbContext context)
-        //{
-        //    _profileManager = profileManager;
-        //    _context = context;
-        //}
 
         [HttpGet("profile/{id}")]
         [Route("Profile/{id}")]
         public async Task<IActionResult> Index(string id)
         {
-            var profile = await _profileManager.ReadAsync(id);
-            return View(profile);
+            if(await _context.Users.FindAsync(id) != null)
+            {
+                var profile = await _profileManager.ReadAsync(id);
+                return View(profile);
+            }
+            return RedirectToAction("Index", "NotFound");
         }
 
         [HttpGet("Edit/{id}")]
         public async Task<IActionResult> EditProfile(string id)
         {
-            var profile = await _profileManager.ReadAsync(id); 
-            return View(profile);
+            if(await _context.Users.FindAsync(id) != null)
+            {
+                var profile = await _profileManager.ReadAsync(id);
+                return View(profile);
+            }
+            return RedirectToAction("Index", "Notfound");
+
         }
 
         [HttpPost("Edit/{id}")]
@@ -70,7 +74,7 @@ namespace ASP_Net_MVC.Controllers
                 {
                     profileEntity.FirstName = model.FirstName;
                     profileEntity.LastName = model.LastName;
-                    profile.Email = model.Email;
+                    profileEntity.User.Email = model.Email;
                     profileEntity.City = model.City;
                     profileEntity.Country = model.Country;
                     profileEntity.AddressLine = model.AddressLine;
@@ -85,7 +89,6 @@ namespace ASP_Net_MVC.Controllers
                     //identityUserEntity.UserName = identityUserEntity.Email;  ****Username remains same on creation and is needed for log in
                 }
 
-                //return View(model);
 
             } else
             {
@@ -93,7 +96,7 @@ namespace ASP_Net_MVC.Controllers
                 {
                     profileEntity.FirstName = model.FirstName;
                     profileEntity.LastName = model.LastName;
-                    profile.Email = model.Email;
+                    profileEntity.User.Email = model.Email;
                     profileEntity.City = model.City;
                     profileEntity.Country = model.Country;
                     profileEntity.AddressLine = model.AddressLine;

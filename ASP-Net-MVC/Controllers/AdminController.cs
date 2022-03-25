@@ -1,4 +1,6 @@
 ﻿using ASP_Net_MVC.Data;
+using ASP_Net_MVC.Helpers;
+using ASP_Net_MVC.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,10 +11,12 @@ namespace ASP_Net_MVC.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IProfileManager _profileManager;
 
-        public AdminController(ApplicationDbContext context)
+        public AdminController(ApplicationDbContext context, IProfileManager profileManager)
         {
             _context = context;
+            _profileManager = profileManager;
         }
 
         public IActionResult Index()
@@ -20,9 +24,14 @@ namespace ASP_Net_MVC.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Users()
+        [HttpGet]
+        public async Task<IActionResult> UserList()
         {
-            return View(await _context.Profiles.Include(x => x.User).ToListAsync());    
+            
+            var profiles = await _profileManager.GetAllProfilesAsync();
+            return View(profiles);    
         }
+
+        
     }
 }

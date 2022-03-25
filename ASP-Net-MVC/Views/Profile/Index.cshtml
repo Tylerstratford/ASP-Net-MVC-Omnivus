@@ -20,7 +20,8 @@
                         <div id="profile-display-header">
                             <div>
                                 <h2>@Model.FirstName @Model.LastName</h2>
-                                <h3>@await ProfileManager.ReadRoleAsync(User.FindFirst("UserId").Value)</h3>
+                                @*<h3>@await ProfileManager.ReadRoleAsync(User.FindFirst("userId").Value)</h3>*@
+                                <h3>@await ProfileManager.ReadRoleAsync(@Model.UserId)</h3>
                             </div>
                             <div>
                                 <img src="@("~/profileImages/"+Model.FileName)" asp-append-version="true" id="profile-picture"></img>
@@ -55,7 +56,8 @@
                         
 
                          <a asp-controller="Profile" asp-action="EditProfile" asp-route-id="@User.FindFirst("UserId").Value"><button id="signUp-button">Edit Profile</button> </a> 
-                    </div>
+                    
+                     </div>
                 </div>
             </div>
         </div>

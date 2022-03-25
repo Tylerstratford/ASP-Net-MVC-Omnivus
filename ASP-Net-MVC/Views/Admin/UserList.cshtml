@@ -1,0 +1,58 @@
+﻿@using ASP_Net_MVC.Models.ViewModels
+@*@using ASP_Net_MVC.Models.ViewModels*@
+@*@model IEnumerable<ASP_Net_MVC.Models.ViewModels.ProfileViewModel>*@
+@model ProfileViewModel
+
+@{
+    ViewData["Title"] = "UserList";
+}
+
+<div class="container">
+        <div id="user-container">
+            <h1 class="user-header">Users</h1>
+            <div id="add-roles-container">
+                <h2>Add Roles</h2>
+                <input placeholder="Enter role" />
+                <button>Add</button>
+            </div>
+            <div id="grid-display-user-headlines">
+                <h2>Profile Picture</h2>
+                <h2>User</h2>
+                <h2>Street</h2>
+                <h2>Postal Code</h2>
+                <h2>City</h2>
+                <h2>Country</h2>
+                <h2>Role</h2>
+                <h2 style="color: #4F79A9">Options</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div id="user-display">
+
+            @foreach (var item in Model.Profile)
+            {
+            <div id="grid-display-user-display-information">
+
+                <img src="@("~/profileImages/"+item.FileName)" asp-append-version="true" id="user-picture"></img>
+                <h2>@Html.DisplayFor(modelitem => item.DisplayName)</h2>
+                <h2 style="padding-right:20px">@Html.DisplayFor(modelitem => item.AddressLine)</h2>
+                <h2>@Html.DisplayFor(modelitem => item.PostalCode)</h2>
+                <h2>@Html.DisplayFor(modelitem => item.City)</h2>
+                <h2>@Html.DisplayFor(modelitem => item.Country)</h2>
+                <h2>@await ProfileManager.ReadRoleAsync(item.UserId)</h2>
+                <div id="userlist-action-links">
+                <a asp-controller="profile" asp-action="EditProfile" asp-route-id="@item.Id">Edit</a> 
+                <a asp-controller="profile" asp-action="Index" asp-route-id="@item.Id">Profile</a> 
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+
+            }
+            
+        </div>
+    </div>
+
+

@@ -18,7 +18,7 @@
                     <a asp-controller="Profile" asp-action="Index" asp-route-id="@User.FindFirst("UserId").Value" >My Profile</a>
                      @if (User.IsInRole("admin"))
                     {
-                        <a asp-controller="Admin" asp-action="Users">Users</a>
+                        <a asp-controller="Admin" asp-action="UserList">Users</a>
                     }
                     <a asp-controller="auth" asp-action="SignOut">Sign Out</a>
                 </div>

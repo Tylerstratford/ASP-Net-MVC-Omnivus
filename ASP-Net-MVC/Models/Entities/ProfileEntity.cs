@@ -39,5 +39,7 @@ namespace ASP_Net_MVC.Models.Entities
         [Display(Name ="Upload File")]
         public IFormFile File { get; set; }
 
+        
+
     }
 }

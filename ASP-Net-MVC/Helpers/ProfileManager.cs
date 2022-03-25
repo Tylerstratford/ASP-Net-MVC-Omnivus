@@ -1,6 +1,7 @@
 ﻿using ASP_Net_MVC.Data;
 using ASP_Net_MVC.Models;
 using ASP_Net_MVC.Models.Entities;
+using ASP_Net_MVC.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,9 @@ namespace ASP_Net_MVC.Helpers
         Task<UserProfile> ReadAsync(string userId);
         Task<string> DisplayNameAsync(string userId);
         Task<string> ReadRoleAsync(string userId);
+
+        Task<ProfileViewModel> GetAllProfilesAsync();
+
         //Task<ProfileResult> EditProfileAsync(IdentityUser user, UserProfile profile);
 
     }
@@ -65,10 +69,48 @@ namespace ASP_Net_MVC.Helpers
                 profile.City = profileEntity.City;
                 profile.Country = profileEntity.Country;
                 profile.FileName = profileEntity.FileName;
+                profile.UserId = profileEntity.UserId;
+                
 
             };
 
             return profile;
+        }
+
+        public async Task<ProfileViewModel> GetAllProfilesAsync()
+        {
+            var profileList = new List<UserProfile>();
+            var profileEntity = await _context.Profiles.Include(x => x.User).ToListAsync();
+
+
+            if( profileEntity != null)
+            {
+                foreach(var profile in profileEntity)
+                {
+                    profileList.Add(new UserProfile()
+                    {
+                        Id = profile.UserId,
+                        FirstName = profile.FirstName,
+                        LastName = profile.LastName,
+                        Email = profile.User.Email,
+                        AddressLine = profile.AddressLine,
+                        PostalCode = profile.PostalCode,
+                        City = profile.City,
+                        Country = profile.Country,
+                        FileName = profile.FileName,
+                        DisplayName = $"{profile.FirstName} {profile.LastName}",
+                        UserId = profile.UserId,
+                        
+                    });
+                }
+
+            }
+            var profileView = new ProfileViewModel()
+            {
+                Profile = profileList
+            };
+
+            return profileView;                
         }
 
 
@@ -77,6 +119,9 @@ namespace ASP_Net_MVC.Helpers
             var userRole = await _context.UserRoles.FirstOrDefaultAsync(x => x.UserId == userId);
             var role = await _roleManager.FindByIdAsync(userRole.RoleId);
             return role.Name;
+
+            
+
         }
 
         public async Task<string> DisplayNameAsync(string userId)
@@ -84,6 +129,7 @@ namespace ASP_Net_MVC.Helpers
             var result = await ReadAsync(userId);
             return $"{result.FirstName} {result.LastName}";
         }
+
 
     }
     public class ProfileResult
