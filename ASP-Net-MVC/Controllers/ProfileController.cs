@@ -15,14 +15,17 @@ namespace ASP_Net_MVC.Controllers
         private readonly IProfileManager _profileManager;
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _host;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public ProfileController(IProfileManager profileManager, ApplicationDbContext context, IWebHostEnvironment host)
+        public ProfileController(IProfileManager profileManager, ApplicationDbContext context, IWebHostEnvironment host, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _profileManager = profileManager;
             _context = context;
             _host = host;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
-
 
         [HttpGet("profile/{id}")]
         [Route("Profile/{id}")]
@@ -52,7 +55,55 @@ namespace ASP_Net_MVC.Controllers
         public async Task<IActionResult> EditProfile(string id, UserProfile model)
         {
             var profile = new UserProfile();
+
             var profileEntity = await _context.Profiles.Include(x => x.User).FirstOrDefaultAsync(x => x.UserId == id);
+            
+            var userEntity = await _context.Users.FindAsync(profileEntity.UserId);
+
+            var userRoles = await _userManager.GetRolesAsync(userEntity);
+
+            if (model.RoleName != null)
+            {
+
+
+                await _userManager.AddToRoleAsync(userEntity, model.RoleName);
+
+
+
+                foreach (var role in userRoles)
+                {
+                    if (role != model.RoleName)
+                    {
+                        await _userManager.RemoveFromRoleAsync(userEntity, role);
+                    }
+                }
+
+
+
+                _context.Entry(userEntity).State = EntityState.Modified;
+
+            }
+
+
+            //*****This kind of works..but changes all roles
+            //var rolesEntity = await _roleManager.Roles.FirstOrDefaultAsync();
+
+
+
+            //if (rolesEntity != null)
+            //{
+            //    rolesEntity.Name = model.RoleName;
+            //}
+
+            //_context.Entry(rolesEntity).State = EntityState.Modified;
+
+
+            //roleToEdit.Name = model.RoleName;
+
+
+
+            //
+            //var profileEntity = await _context.Profiles.Include(x => x.User).FirstOrDefaultAsync(x => x.UserId == id);
             var identityUserEntity = await _context.Users.FirstOrDefaultAsync(x => x.Email == profileEntity.User.Email);
 
             if (model.File != null)
@@ -102,6 +153,14 @@ namespace ASP_Net_MVC.Controllers
                     profileEntity.AddressLine = model.AddressLine;
                     profileEntity.PostalCode = model.PostalCode;
                     profileEntity.FileName = profileEntity.FileName;
+
+                    //role = new RolesModel()
+                    //{
+
+                    //    RoleId = role.RoleId,
+                    //    RoleName = role.RoleName,
+                    //};
+
                 }
             }
 

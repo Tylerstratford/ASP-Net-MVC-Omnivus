@@ -1,4 +1,5 @@
 ﻿using ASP_Net_MVC.Models.Entities;
+using ASP_Net_MVC.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 
 namespace ASP_Net_MVC.Models
@@ -20,5 +21,16 @@ namespace ASP_Net_MVC.Models
         public IFormFile? File { get; set; }
 
         public string DisplayName { get; set;}
+
+
+        public List<RolesModel> Roles { get; set; }
+
+
+        public RolesModel RolesModel { get; set; }
+        public IdentityRole Roll { get; set; }
+
+        public string Name { get; set; } = string.Empty;
+        public string RoleName { get; set; }
+
     }
 }

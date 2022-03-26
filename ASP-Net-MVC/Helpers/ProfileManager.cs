@@ -19,6 +19,8 @@ namespace ASP_Net_MVC.Helpers
 
         Task<List<RolesModel>> ReadAllRolesAsync();
 
+        Task<IdentityRole> UpdateRoleAsync(string userRole);
+
         //Task<ProfileResult> EditProfileAsync(IdentityUser user, UserProfile profile);
 
     }
@@ -59,9 +61,12 @@ namespace ASP_Net_MVC.Helpers
 
         public async Task<UserProfile> ReadAsync(string userId)
         {
-            var profile = new UserProfile();
+            var profile = new UserProfile()
+            {
+                Roles = await ReadAllRolesAsync()
+            };
             var profileEntity = await _context.Profiles.Include(x => x.User).FirstOrDefaultAsync(x => x.UserId == userId);
-            if(profileEntity != null)
+            if (profileEntity != null)
             {
                 profile.FirstName = profileEntity.FirstName;
                 profile.LastName = profileEntity.LastName;
@@ -72,12 +77,31 @@ namespace ASP_Net_MVC.Helpers
                 profile.Country = profileEntity.Country;
                 profile.FileName = profileEntity.FileName;
                 profile.UserId = profileEntity.UserId;
-                
-
             };
+
+
 
             return profile;
         }
+        //public async Task<UserProfile> ReadAsync(string userId)
+        //{
+        //    var profile = new UserProfile();
+        //    var profileEntity = await _context.Profiles.Include(x => x.User).FirstOrDefaultAsync(x => x.UserId == userId);
+        //    if(profileEntity != null)
+        //    {
+        //        profile.FirstName = profileEntity.FirstName;
+        //        profile.LastName = profileEntity.LastName;
+        //        profile.Email = profileEntity.User.Email;
+        //        profile.AddressLine = profileEntity.AddressLine;
+        //        profile.PostalCode = profileEntity.PostalCode;
+        //        profile.City = profileEntity.City;
+        //        profile.Country = profileEntity.Country;
+        //        profile.FileName = profileEntity.FileName;
+        //        profile.UserId = profileEntity.UserId;
+        //    };
+
+        //    return profile;
+        //}
 
         public async Task<ProfileViewModel> GetAllProfilesAsync()
         {
@@ -127,8 +151,6 @@ namespace ASP_Net_MVC.Helpers
 
         public async Task<List<RolesModel>> ReadAllRolesAsync() 
         {
-            //var identityRole = await _context.UserRoles.Include(x => x.RoleId).FirstOrDefaultAsync();
-
             var userRoles = await _context.Roles.ToListAsync();
             var userList = new List<RolesModel>();
             foreach(var role in userRoles)
@@ -143,6 +165,17 @@ namespace ASP_Net_MVC.Helpers
 
             return userList;
       
+        }
+
+     public async Task<IdentityRole> UpdateRoleAsync(string userRole)
+        {
+            
+            var newUserRole = new IdentityRole()
+            {
+                Name = userRole,
+            };
+
+            return newUserRole;
         }
 
         public async Task<string> DisplayNameAsync(string userId)

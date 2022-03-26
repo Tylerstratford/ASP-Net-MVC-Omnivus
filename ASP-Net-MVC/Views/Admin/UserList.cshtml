@@ -11,12 +11,12 @@
         <div id="user-container">
             <h1 class="user-header">Users</h1>
             <div id="add-roles-container">
-              <h2>Add role</h2>
+              <h2>Add Role</h2>
               <form asp-controller="Admin">
               <input asp-for="NewRole" id="add-role-text" />
               <button type="submit"  id="add-role">+</button>
               </form>
-              <h2>Delete role</h2>
+              <h2>Delete Role</h2>
               <select id="select-role-for-delete">
                   @foreach(var role in Model.Roles) 
                   {
@@ -25,7 +25,14 @@
               </select>
               
               <button  type="submit" id="add-role">-</button>
-                
+              <h2>Edit Role</h2>
+              <select id="select-role-for-delete">
+                  @foreach(var role in Model.Roles) 
+                  {
+                      <option>@role.RoleName</option>
+                  }
+              </select>
+               <button  type="submit" id="add-role">~</button>
           </div>
             <div id="grid-display-user-headlines">
                 <h2>Profile Picture</h2>

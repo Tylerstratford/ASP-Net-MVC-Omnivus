@@ -17,17 +17,32 @@
                 </div>
                 <div id="profile-display-right">
                     <div id="profile-form">
+                        <form asp-action="EditProfile" enctype="multipart/form-data"  asp-route-returnUrl="">
+                        @if(User.IsInRole("admin"))
+                        {
+                        <input asp-for="RoleName" /> @*RoleName works as value for NAME*@
+                        }
                         <div id="profile-display-header">
                             <div>
                                 <h2>@Model.FirstName @Model.LastName</h2>
                                 <h3>@await ProfileManager.ReadRoleAsync(@Model.UserId)</h3>
-                            </div>
+
+                            @if (User.IsInRole("admin"))
+                            {
+                                <select id="select-role-for-delete">
+                                    @foreach (var role in Model.Roles)
+                                    {
+                                        
+                                        <option >@role.RoleName</option>
+                                    }
+                                </select>
+                            }
+                        </div>
                             <div>
                                 <img src="@("~/profileImages/"+Model.FileName)" asp-append-version="true" id="profile-picture"></img>
                             </div>
                         </div>
 
-                        <form asp-action="EditProfile" enctype="multipart/form-data"  asp-route-returnUrl="">
                         <div class="profile-display-right-grid">
                             <h2 class="profile-display-grid-header">Contact information</h2>
                         
