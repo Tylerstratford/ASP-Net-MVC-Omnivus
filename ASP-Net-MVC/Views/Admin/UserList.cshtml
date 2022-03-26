@@ -9,31 +9,47 @@
 
 <div class="container">
         <div id="user-container">
-            <h1 class="user-header">Users</h1>
-            <div id="add-roles-container">
-              <h2>Add Role</h2>
-              <form asp-controller="Admin">
-              <input asp-for="NewRole" id="add-role-text" />
-              <button type="submit"  id="add-role">+</button>
-              </form>
-              <h2>Delete Role</h2>
+            <h1 class="user-header">Roles</h1>
+            <div id="role-list-menu">
+                <h2>Role List</h2>
               <select id="select-role-for-delete">
-                  @foreach(var role in Model.Roles) 
-                  {
-                      <option>@role.RoleName</option>
-                  }
-              </select>
-              
-              <button  type="submit" id="add-role">-</button>
-              <h2>Edit Role</h2>
-              <select id="select-role-for-delete">
-                  @foreach(var role in Model.Roles) 
-                  {
-                      <option>@role.RoleName</option>
-                  }
-              </select>
-               <button  type="submit" id="add-role">~</button>
-          </div>
+
+                    @foreach (var role in Model.Roles)
+                    {
+                        <option>@role.RoleName</option>
+                    }
+                </select>
+              </div>
+        <div id="add-roles-container">
+            <div class="role-edit">
+                <h2>Add Role</h2>
+                <form asp-controller="Admin">
+                    <span><input asp-for="NewRole" class="add-role-text" placeholder="Enter a new role" /></span>
+                    <button type="submit" class="user-button"><i class="fa-solid fa-plus"></i></button>
+                </form>
+            </div>
+
+            <div class="role-edit">
+                <h2 class="">Delete Role</h2>
+                <form asp-action="DeleteRole">
+                    @*<select id="select-role-for-delete" asp-for="RoleModel" asp-items=@(new SelectList(Model.Roles,"RoleId", "RoleName"))></select>*@
+                    <input class="add-role-text" placeholder="Enter role to delete" />
+                    <button type="submit" class="user-button"><i class="fa-solid fa-minus"></i></button>
+                </form>
+            </div>
+
+            <div class="role-edit">
+                <h2>Edit Role</h2>
+                <form>
+                    <input class="add-role-text" placeholder="Enter role to edit" />
+                    <input class="add-role-text" placeholder="Enter new role" />
+                    <button type="submit" class="user-button"><i class="fa-solid fa-pen"></i></button>
+                </form>
+            </div>
+        </div>
+
+          <h2 class="user-header">Users</h2>
+
             <div id="grid-display-user-headlines">
                 <h2>Profile Picture</h2>
                 <h2>User</h2>

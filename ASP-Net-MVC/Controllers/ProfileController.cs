@@ -154,13 +154,6 @@ namespace ASP_Net_MVC.Controllers
                     profileEntity.PostalCode = model.PostalCode;
                     profileEntity.FileName = profileEntity.FileName;
 
-                    //role = new RolesModel()
-                    //{
-
-                    //    RoleId = role.RoleId,
-                    //    RoleName = role.RoleName,
-                    //};
-
                 }
             }
 

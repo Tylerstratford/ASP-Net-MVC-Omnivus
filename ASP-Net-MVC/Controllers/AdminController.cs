@@ -31,9 +31,9 @@ namespace ASP_Net_MVC.Controllers
         [HttpGet]
         public async Task<IActionResult> UserList()
         {
-            
+
             var profiles = await _profileManager.GetAllProfilesAsync();
-            return View(profiles);    
+            return View(profiles);
         }
 
 
@@ -46,7 +46,12 @@ namespace ASP_Net_MVC.Controllers
             return RedirectToAction("UserList");
         }
 
-       
-       
+        [HttpPost]
+       public async Task<IActionResult> DeleteRole(ProfileViewModel model)
+        {
+
+            return View();
+        }
+
     }
 }
