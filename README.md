@@ -13,3 +13,4 @@
 <h2>To do:</h2>
 <li>Validation on edit profile did not work as intended when picutre and editing roles was added. Thus, validation is disabled. To solve, this Javascript validation should be added</li>
 <li>When signing up, creating roles, or any other inputs - all should be formatted with ToUpper so everything is formatted the same way. I.e no lowercases etc.</li>
+<li>Edit some design features so that all is more uniform </li>
