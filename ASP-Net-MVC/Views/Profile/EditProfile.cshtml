@@ -25,7 +25,7 @@
                                 <h3>@await ProfileManager.ReadRoleAsync(@Model.UserId)</h3>
                                 @if (User.IsInRole("admin"))
                                 {
-                                    <input asp-for="RoleName" style="width: 225px;" placeholder="Enter new role (must be from list)" /> @*RoleName works as value for NAME*@
+                                    <input asp-for="RoleName" style="width: 225px;" placeholder="Enter new role (must be from list)" />
                                     <span>See user list ></span>
                                 }
                             @if (User.IsInRole("admin"))

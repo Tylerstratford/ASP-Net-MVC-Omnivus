@@ -20,7 +20,6 @@
                         <div id="profile-display-header">
                             <div>
                                 <h2>@Model.FirstName @Model.LastName</h2>
-                                @*<h3>@await ProfileManager.ReadRoleAsync(User.FindFirst("userId").Value)</h3>*@
                                 <h3>@await ProfileManager.ReadRoleAsync(@Model.UserId)</h3>
                             </div>
                             <div>

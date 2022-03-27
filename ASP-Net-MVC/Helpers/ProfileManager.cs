@@ -21,7 +21,6 @@ namespace ASP_Net_MVC.Helpers
 
         Task<IdentityRole> UpdateRoleAsync(string userRole);
 
-        //Task<ProfileResult> EditProfileAsync(IdentityUser user, UserProfile profile);
 
     }
     public class ProfileManager : IProfileManager
@@ -83,25 +82,7 @@ namespace ASP_Net_MVC.Helpers
 
             return profile;
         }
-        //public async Task<UserProfile> ReadAsync(string userId)
-        //{
-        //    var profile = new UserProfile();
-        //    var profileEntity = await _context.Profiles.Include(x => x.User).FirstOrDefaultAsync(x => x.UserId == userId);
-        //    if(profileEntity != null)
-        //    {
-        //        profile.FirstName = profileEntity.FirstName;
-        //        profile.LastName = profileEntity.LastName;
-        //        profile.Email = profileEntity.User.Email;
-        //        profile.AddressLine = profileEntity.AddressLine;
-        //        profile.PostalCode = profileEntity.PostalCode;
-        //        profile.City = profileEntity.City;
-        //        profile.Country = profileEntity.Country;
-        //        profile.FileName = profileEntity.FileName;
-        //        profile.UserId = profileEntity.UserId;
-        //    };
-
-        //    return profile;
-        //}
+  
 
         public async Task<ProfileViewModel> GetAllProfilesAsync()
         {

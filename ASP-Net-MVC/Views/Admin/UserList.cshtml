@@ -32,7 +32,6 @@
             <div class="role-edit">
                 <h2 class="">Delete Role</h2>
                 <form asp-controller="Admin" asp-action="DeleteRole">
-                    @*<select id="select-role-for-delete" asp-for="RoleModel" asp-items=@(new SelectList(Model.Roles,"RoleId", "RoleName"))></select>*@
                     <input asp-for="RoleModel.RoleName" class="add-role-text" placeholder="Enter role to delete" />
                     <button type="submit" class="user-button"><i class="fa-solid fa-minus"></i></button>
                 </form>
