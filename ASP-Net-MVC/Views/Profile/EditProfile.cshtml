@@ -18,15 +18,16 @@
                 <div id="profile-display-right">
                     <div id="profile-form">
                         <form asp-action="EditProfile" enctype="multipart/form-data"  asp-route-returnUrl="">
-                        @if(User.IsInRole("admin"))
-                        {
-                        <input asp-for="RoleName" /> @*RoleName works as value for NAME*@
-                        }
+                        
                         <div id="profile-display-header">
                             <div>
                                 <h2>@Model.FirstName @Model.LastName</h2>
                                 <h3>@await ProfileManager.ReadRoleAsync(@Model.UserId)</h3>
-
+                                @if (User.IsInRole("admin"))
+                                {
+                                    <input asp-for="RoleName" style="width: 225px;" placeholder="Enter new role (must be from list)" /> @*RoleName works as value for NAME*@
+                                    <span>See user list ></span>
+                                }
                             @if (User.IsInRole("admin"))
                             {
                                 <select id="select-role-for-delete">

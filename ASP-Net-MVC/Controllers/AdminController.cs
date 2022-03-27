@@ -95,5 +95,18 @@ namespace ASP_Net_MVC.Controllers
             return RedirectToAction("UserList");
         }
 
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                await _userManager.DeleteAsync(user);
+            }
+
+            return RedirectToAction("UserList");
+
+        }
+
     }
 }

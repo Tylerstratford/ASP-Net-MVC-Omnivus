@@ -81,7 +81,7 @@
                 <div id="userlist-action-links">
                 <a asp-controller="profile" asp-action="EditProfile" asp-route-id="@item.Id">Edit</a> 
                 <a asp-controller="profile" asp-action="Index" asp-route-id="@item.Id">Profile</a> 
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-controller="Admin" asp-action="Deleteuser" asp-route-id="@item.Id">Delete</a>
                 </div>
             </div>
 

@@ -64,6 +64,10 @@ namespace ASP_Net_MVC.Controllers
 
             if (model.RoleName != null)
             {
+                //if(model.RolesModel.Name.Any())
+                //{
+                //    return RedirectToAction("Index", "Profile", new { Id = id });
+                //}
 
 
                 await _userManager.AddToRoleAsync(userEntity, model.RoleName);
@@ -85,25 +89,6 @@ namespace ASP_Net_MVC.Controllers
             }
 
 
-            //*****This kind of works..but changes all roles
-            //var rolesEntity = await _roleManager.Roles.FirstOrDefaultAsync();
-
-
-
-            //if (rolesEntity != null)
-            //{
-            //    rolesEntity.Name = model.RoleName;
-            //}
-
-            //_context.Entry(rolesEntity).State = EntityState.Modified;
-
-
-            //roleToEdit.Name = model.RoleName;
-
-
-
-            //
-            //var profileEntity = await _context.Profiles.Include(x => x.User).FirstOrDefaultAsync(x => x.UserId == id);
             var identityUserEntity = await _context.Users.FirstOrDefaultAsync(x => x.Email == profileEntity.User.Email);
 
             if (model.File != null)
