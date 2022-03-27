@@ -24,25 +24,25 @@
             <div class="role-edit">
                 <h2>Add Role</h2>
                 <form asp-controller="Admin">
-                    <span><input asp-for="NewRole" class="add-role-text" placeholder="Enter a new role" /></span>
+                    <input asp-for="NewRole" class="add-role-text" placeholder="Enter a new role" />
                     <button type="submit" class="user-button"><i class="fa-solid fa-plus"></i></button>
                 </form>
             </div>
 
             <div class="role-edit">
                 <h2 class="">Delete Role</h2>
-                <form asp-action="DeleteRole">
+                <form asp-controller="Admin" asp-action="DeleteRole">
                     @*<select id="select-role-for-delete" asp-for="RoleModel" asp-items=@(new SelectList(Model.Roles,"RoleId", "RoleName"))></select>*@
-                    <input class="add-role-text" placeholder="Enter role to delete" />
+                    <input asp-for="RoleModel.RoleName" class="add-role-text" placeholder="Enter role to delete" />
                     <button type="submit" class="user-button"><i class="fa-solid fa-minus"></i></button>
                 </form>
             </div>
 
             <div class="role-edit">
                 <h2>Edit Role</h2>
-                <form>
-                    <input class="add-role-text" placeholder="Enter role to edit" />
-                    <input class="add-role-text" placeholder="Enter new role" />
+                <form asp-controller="Admin" asp-action="EditRole">
+                    <input asp-for="RoleModel.RoleName" class="add-role-text" placeholder="Enter role to edit" />
+                    <input asp-for="RoleModel.NewRoleName" class="add-role-text" placeholder="Enter new role" />
                     <button type="submit" class="user-button"><i class="fa-solid fa-pen"></i></button>
                 </form>
             </div>
